@@ -1,6 +1,6 @@
 "# JDK+"
 Proyecto GEO
 Integrantes:
--Juan de Dios Guadalupe Cruz Delgado. 
--Karol Mandujano  Quijas
--Diego Duarte Guerrero
+-Cruz Delgado Juan de Dios Guadalupe. 
+-Duarte Guerrero Diego.
+-Mandujano Quijas Karol. 
