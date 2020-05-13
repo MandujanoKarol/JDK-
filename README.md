@@ -1,6 +1,6 @@
 # Pigmento
 
-[![GitHub Version](https://img.shields.io/github/release/daneden/animate.css.svg?style=for-the-badge)](https://github.com/daneden/animate.css) [![Github Star](https://img.shields.io/github/stars/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/daneden/animate.css) [![Github Fork](https://img.shields.io/github/forks/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/daneden/animate.css) [![License]( https://img.shields.io/github/license/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/daneden/animate.css)
+[![GitHub Version](https://img.shields.io/github/release/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![Github Star](https://img.shields.io/github/stars/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![Github Fork](https://img.shields.io/github/forks/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![License]( https://img.shields.io/github/license/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-)
 
 ## _Just-add-water CSS animation_
 
