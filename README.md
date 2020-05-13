@@ -31,8 +31,10 @@ Animate.css supports the [`prefers-reduced-motion` media query](https://webkit.o
 width="150" height="150">
 <img src="https://scontent.fgdl4-1.fna.fbcdn.net/v/t1.0-9/61772475_2329397377348987_7993628823046324224_n.jpg?_nc_cat=111&_nc_sid=85a577&_nc_ohc=Ar_lWxuWyJUAX9XWj9Q&_nc_ht=scontent.fgdl4-1.fna&oh=cf7220cff3fa9968bf1ed1f3753769dc&oe=5EE1F55F&dl=1" width="150" height="150">
 <img src="https://drive.google.com/uc?export=download&id=147JA-oZi6b3xc33PLYQRyAqVLOgICfGK" width="150" height="150">
-| [Karol Quijas](https://github.com/MandujanoKarol) | [Juan de Dios](https://github.com/Juancruzd) | [Diego Duarte](https://github.com/WarenGonzaga) |
-| FrontEnd Creator | BackEnd Creator | BackEnd Creator |
+
+[Karol Quijas](https://github.com/MandujanoKarol) | [Juan de Dios](https://github.com/Juancruzd) | [Diego Duarte](https://github.com/WarenGonzaga)
+------------ | ------------- | -------------
+FrontEnd Creator | BackEnd Creator | BackEnd Creator 
 
 ## License
 
