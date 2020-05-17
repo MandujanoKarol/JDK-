@@ -4,7 +4,7 @@
 <a href="http://slack.JDK+.org/" target="_blank"><img src="https://img.shields.io/badge/slack-JDK--EC0E4F.svg"></a>
 </p>
 
-# Pigmento
+# 
 
 [![GitHub Version](https://img.shields.io/github/release/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![Github Star](https://img.shields.io/github/stars/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![Github Fork](https://img.shields.io/github/forks/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![License]( https://img.shields.io/github/license/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-)
 
