@@ -1,6 +1,6 @@
 <p align="center">
 <img src="http://codeandomexico.org/resources/img/codeandomexico.png" width="500" alt="Codeando México"><br>
-<a href="http://www.codeandomexico.org/" target="_blank"><img src="https://img.shields.io/badge/website-JDK--00D88E.svg"></a>
+<a href="http://mandujanokarol.github.io/JDK-/" target="_blank"><img src="https://img.shields.io/badge/website-JDK--00D88E.svg"></a>
 <a href="http://slack.JDK+.org/" target="_blank"><img src="https://img.shields.io/badge/slack-JDK--EC0E4F.svg"></a>
 </p>
 
