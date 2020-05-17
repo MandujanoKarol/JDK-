@@ -8,8 +8,6 @@
 
 [![GitHub Version](https://img.shields.io/github/release/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![Github Star](https://img.shields.io/github/stars/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![Github Fork](https://img.shields.io/github/forks/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![License]( https://img.shields.io/github/license/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![License]( https://img.shields.io/github/issues/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-)
 
-## _Just-add-water CSS animation_
-
 ## Installation
 
 Install with npm:
