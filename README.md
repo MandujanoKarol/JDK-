@@ -39,6 +39,7 @@ alt="Juan de Dios">
 <img src="https://drive.google.com/uc?export=download&id=147JA-oZi6b3xc33PLYQRyAqVLOgICfGK" width="150" height="150"
 alt="Diego Duarte">
 </a>
+
 [Karol Quijas](https://github.com/MandujanoKarol) | [Juan de Dios](https://github.com/Juancruzd) | [Diego Duarte](https://github.com/duarteissc)
 ------------ | ------------- | -------------
 FrontEnd Creator | BackEnd Creator | BackEnd Creator 
