@@ -1,12 +1,12 @@
 <p align="center">
 <img src="http://codeandomexico.org/resources/img/codeandomexico.png" width="500" alt="Codeando México"><br>
 <a href="http://mandujanokarol.github.io/JDK-/" target="_blank"><img src="https://img.shields.io/badge/website-Pigmento-blue"></a>
-<a href="http://slack.JDK+.org/" target="_blank"><img src="https://img.shields.io/badge/slack-JDK--EC0E4F.svg"></a>
+<a href="http://slack.JDK+.org/" target="_blank"><img src="https://img.shields.io/badge/slack-Pigmento-ff69b4"></a>
 </p>
 
 # 
 
-[![GitHub Version](https://img.shields.io/github/release/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![Github Star](https://img.shields.io/github/stars/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![Github Fork](https://img.shields.io/github/forks/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![License]( https://img.shields.io/github/license/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-)
+[![GitHub Version](https://img.shields.io/github/release/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![Github Star](https://img.shields.io/github/stars/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![Github Fork](https://img.shields.io/github/forks/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![License]( https://img.shields.io/github/license/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![License]( https://img.shields.io/github/issues/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-)
 
 ## _Just-add-water CSS animation_
 
