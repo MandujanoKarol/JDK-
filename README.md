@@ -50,7 +50,7 @@ Pigmento is licensed under the MIT license. <https://opensource.org/licenses/MIT
 
 ## Contributing
 
-By participating, you are expected to uphold this code. Please report unacceptable behavior to [salleeats@gmail.com](mailto:salleeats@gmail.com).
+By participating, you are expected to uphold this code. Please report unacceptable behavior to [jdk.teamgeo@gmail.com](mailto:jdk.teamgeo@gmail.com).
 
 
 
