@@ -1,8 +1,12 @@
-# Pigmento
+<p align="center">
+<img src="https://images.clipartlogo.com/files/istock/previews/7862/78627327-pigment-paint-icon-vector.jpg" width="125" height="125" alt="Pigmento México"><br>
+<a href="http://mandujanokarol.github.io/JDK-/" target="_blank"><img src="https://img.shields.io/badge/website-Pigmento-blue"></a>
+<a href="http://slack.JDK+.org/" target="_blank"><img src="https://img.shields.io/badge/slack-Pigmento-ff69b4"></a>
+</p>
 
-[![GitHub Version](https://img.shields.io/github/release/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![Github Star](https://img.shields.io/github/stars/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![Github Fork](https://img.shields.io/github/forks/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![License]( https://img.shields.io/github/license/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-)
+# 
 
-## _Just-add-water CSS animation_
+[![GitHub Version](https://img.shields.io/github/release/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![Github Star](https://img.shields.io/github/stars/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![Github Fork](https://img.shields.io/github/forks/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![License]( https://img.shields.io/github/license/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![License]( https://img.shields.io/github/issues/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-)
 
 ## Installation
 
@@ -50,7 +54,7 @@ Pigmento is licensed under the MIT license. <https://opensource.org/licenses/MIT
 
 ## Contributing
 
-By participating, you are expected to uphold this code. Please report unacceptable behavior to [salleeats@gmail.com](mailto:salleeats@gmail.com).
+By participating, you are expected to uphold this code. Please report unacceptable behavior to [jdk.teamgeo@gmail.com](mailto:jdk.teamgeo@gmail.com).
 
 
 
