@@ -8,13 +8,9 @@
 
 [![GitHub Version](https://img.shields.io/github/release/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![Github Star](https://img.shields.io/github/stars/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![Github Fork](https://img.shields.io/github/forks/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![License]( https://img.shields.io/github/license/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-) [![License]( https://img.shields.io/github/issues/MandujanoKarol/JDK-.svg?style=for-the-badge)](https://github.com/MandujanoKarol/JDK-)
 
-## Installation
-
-Install with npm:
-
-```shell
-npm install animate.css --save
-```
+## ¿Qué es Pigmento?
+  
+Pigmento es la aplicación que te permitirá conectarte con los mejores establecimientos de comida desde la comodidad de tu hogar. Te ofrece una gran variedad de menús con los que cuentan los establecimientos conectados a esta plataforma y así puedas pedir tus platillos favoritos cuando lo desees. 
 
 Install with yarn:
 
