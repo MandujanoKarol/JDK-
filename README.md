@@ -36,7 +36,7 @@ width="150" height="150" alt="Karol Quijas">
 alt="Juan de Dios">  
 </a>
 <a href="https://github.com/duarteissc" target="_blank"> 
-<img src="https://drive.google.com/uc?export=download&id=147JA-oZi6b3xc33PLYQRyAqVLOgICfGK" width="150" height="150"
+<img src="https://scontent.fgdl4-1.fna.fbcdn.net/v/t1.0-9/67738823_2848887105186058_3461303526687244288_o.jpg?_nc_cat=101&_nc_sid=85a577&_nc_ohc=ex-Pgy3CyPkAX8Es133&_nc_ht=scontent.fgdl4-1.fna&oh=5d448f5fae7e8e837c8b68243cd50a7b&oe=5EE9DF97&dl=1" width="150" height="150"
 alt="Diego Duarte">
 </a>
 
