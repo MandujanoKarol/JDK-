@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://images.clipartlogo.com/files/istock/previews/7862/78627327-pigment-paint-icon-vector.jpg" width="125" height="125" alt="Pigmento México"><br>
+<img src="https://scontent.fgdl4-1.fna.fbcdn.net/v/t1.15752-9/100061186_3094987650566125_933502882563489792_n.png?_nc_cat=100&_nc_sid=b96e70&_nc_ohc=k1PTTRJKgHwAX_KS-Yt&_nc_ht=scontent.fgdl4-1.fna&oh=73a700cf96f0c480f7d61405825f8830&oe=5EED83EF&dl=1" width="125" height="125" alt="Pigmento México"><br>
 <a href="http://mandujanokarol.github.io/JDK-/" target="_blank"><img src="https://img.shields.io/badge/website-Pigmento-blue"></a>
 <a href="http://jdkespacio.slack.com" target="_blank"><img src="https://img.shields.io/badge/slack-Pigmento-ff69b4"></a>
 </p>
