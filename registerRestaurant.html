@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-<!--VISTA DE REGISTRO DE USUARIO-->
+<!--VISTA DE REGISTRO DE RESTAURANTE-->
 
 <head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Pigmento | RegistroU</title>
+    <title>Pigmento | RegistroR</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -26,15 +26,15 @@
                 <img width="300px" height="110px" src="img/Pigmento.png">
 
             </div>
-            <h3>Registro de usuario</h3>
+            <h3>Registro de restaurante</h3>
             <p>Crea una cuenta y conoce nuestro servicio.</p>
 
             <form class="m-t" role="form" action="login.html">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Nombre" required="">
+                    <input type="text" class="form-control" placeholder="Nombre del restaurante" required="">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Apellido" required="">
+                    <textarea type="text" class="form-control" placeholder="Descripción" required=""></textarea>
                 </div>
                 <div class="form-group">
                     <input type="email" class="form-control" placeholder="Correo electrónico" required="">
@@ -43,14 +43,22 @@
                     <input type="password" class="form-control" placeholder="Contraseña" required="">
                 </div>
                 <div class="form-group">
-                    <input type="tel" class="form-control" placeholder="N° Teléfono" maxlength="10" required="">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Dirección" required="">
+                    <input type="text" class="form-control" placeholder="Dirección del restaurante" required="">
                 </div>
 
-        
-                <button type="submit" style="font-weight: bold; color: white;" class="btn btn-primaryNaranja block full-width m-b">Registrar</button>
+                <div class="form-group">
+                    <p>Horario de apertura: <input type="time" id="rhorarioA" required> </p>
+                </div>
+
+                <div class="form-group">
+                    <p>Horario de cierre: <input type="time" id="rhorarioC" required> </p>
+                </div>
+
+
+
+
+                <button type="submit" style="font-weight: bold; color: white;"
+                    class="btn btn-primaryNaranja block full-width m-b">Registro</button>
 
                 <p class="text-muted text-center"><small>¿Ya tienes una cuenta?</small></p>
                 <a class="btn btn-sm btn-white btn-block" href="login.html">Ingresar</a>
