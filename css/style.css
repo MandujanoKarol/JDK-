@@ -1556,6 +1556,11 @@ button:focus {
   background-color: #1ab394;
   border-color: #1ab394;
 }
+
+.btn-primaryNaranja{
+  background-color: #FB7940;
+}
+
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary.focus {
