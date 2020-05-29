@@ -1,3 +1,16 @@
+$(document).ready(function() { 
+    fetch("js/api/tipos_cocina.json")
+    .then(response => { 
+        response.json().then(function(dato) {  
+            console.log(dato)
+        
+        });
+    })
+    .catch(err => {
+        console.log(err);
+    });
+ });
+
 const formRegister = document.getElementById('formRegister');
 
 formRegister.addEventListener('submit',(e)=>{
