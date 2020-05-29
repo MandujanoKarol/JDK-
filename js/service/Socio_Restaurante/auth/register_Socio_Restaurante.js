@@ -1,9 +1,15 @@
 $(document).ready(function() { 
     fetch("js/api/tipos_cocina.json")
     .then(response => { 
-        response.json().then(function(dato) {  
-            console.log(dato)
         
+        var select = document.getElementsByName("tipococina")[0];
+        response.json().then(function(dato) {    
+            dato.tiposcocina.forEach( tipo => {
+                console.log(tipo); 
+                var option = document.createElement("option");
+                option.text = tipo;
+                select.add(option);
+            });
         });
     })
     .catch(err => {
