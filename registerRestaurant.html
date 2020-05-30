@@ -56,9 +56,10 @@
                         </select> </p>
                 </div>
                 <div class="form-group">
-                    <p style="text-align: left;">Seleccione su tipo de cocina:
-                        <select class="form-control" name="select">
-
+                    <p style="text-align: left;">Seleccione su tipo de cocina: 
+                        <select class="form-control" name="tipococina">
+                            <option>Seleccione un tipo de cocina...</option> 
+                        <select class="form-control" name="select"> 
                         </select> </p>
                 </div>
 
@@ -99,6 +100,13 @@
             });
         });
     </script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+    
+    <script src="js/service/bd.js"></script>
+    <script src="js/service/Socio_Restaurante/auth/register_Socio_Restaurante.js"></script>
 </body>
 
 </html>

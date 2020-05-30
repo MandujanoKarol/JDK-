@@ -3,6 +3,7 @@
 
 <head>
     <!--Favicon-->
+    
     <link rel="icono de acceso directo" href="img/icon-web/PigmentoFav.png" type="image / x-icon">
     <link rel="icon" href="img/icon-web/PigmentoFav.png" type="image / x-icon">
     <meta charset="utf-8">
@@ -32,12 +33,12 @@
             <p>Conéctate con los mejores establecimientos de la ciudad, desde la comodidad de tu hogar.
             </p>
             <p>Iniciar Sesión</p>
-            <form class="m-t" role="form" action="index.html">
+            <form class="m-t" role="form" action="index.html" onsubmit="return validateForm()" id="formLogIn">
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Ingresa tu correo electrónico" required="">
+                    <input type="email" class="form-control" placeholder="Ingresa tu correo electrónico" required="" name="email">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Ingresa tu contraseña" required="">
+                    <input type="password" class="form-control" placeholder="Ingresa tu contraseña" required="" name="password">
                 </div>
                 <button type="submit" style="font-weight: bold; color: white;"
                     class="btn btn-primaryNaranja block full-width m-b">Ingresar</button>
@@ -54,6 +55,14 @@
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script> 
+
+    <script src="js/service/bd.js"></script>
+    <script src="js/service/login.js"></script>
 
 </body>
 

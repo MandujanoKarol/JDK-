@@ -25,13 +25,14 @@ function mensajeError(codigo) {
       }
     return mensaje;
 }
+
 ////DOM form  LogIn
-const formLogIn =  document.getElementById('formLogIn');
+const formLogIn =  document.getElementById('formLogIn'); 
 ////DOM form  LogIn event  submit on button LogIn
 formLogIn.addEventListener('submit',(e)=>{
     e.preventDefault();
     ///print test
-    //console.log(formLogIn['email'].value+"  "+formLogIn['password'].value );
+    console.log(formLogIn['email'].value+"  "+formLogIn['password'].value );
 
     ////Data
     let email = formLogIn['email'].value;
