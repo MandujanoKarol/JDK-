@@ -1,3 +1,5 @@
+///Formulario de registro
+const formRegister = document.getElementById('formRegister');
 $(document).ready(function() { 
     fetch("js/api/tipos_cocina.json")
     .then(response => {  
@@ -13,9 +15,33 @@ $(document).ready(function() {
     .catch(err => {
         console.log(err);
     });
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {  
+            var latlng = {lat: parseFloat(position.coords.latitude), lng: parseFloat(position.coords.longitude)};
+            var geocoder = new google.maps.Geocoder;
+            geocoder.geocode({
+                'location': latlng
+                // ej. "-34.653015, -58.674850"
+            }, function(results, status) {
+                // si la solicitud fue exitosa
+                if (status === google.maps.GeocoderStatus.OK) {
+                    // si encontró algún resultado.
+                    if (results[1]) {
+                    console.log(results[1].formatted_address);
+                    }
+                }
+            });
+            console.log(latlng);
+        }, function(error) {
+            console.log(error);
+        });
+    }
+    else {
+        console.log("error ubicacion");
+    }
+
  });
 
-const formRegister = document.getElementById('formRegister');
 
 formRegister.addEventListener('submit',(e)=>{
     e.preventDefault();
@@ -48,9 +74,7 @@ formRegister.addEventListener('submit',(e)=>{
                     "estado":parseInt(1)
                 }).then(function() { 
                     formRegister.reset();
-                    document.getElementById('errorregistrar').innerHTML = ''; 
-                   // window.location.replace("index.html");
-                    //window.location.replace("https://juancruzd.github.io/Practica1-Sistemas-Geo-Referenciados/firebase/practica2/index.html");
+                    document.getElementById('errorregistrar').innerHTML = '';  
                 }).catch(function(error) {
                         console.error("Error regitering document: ", error);
                 });
