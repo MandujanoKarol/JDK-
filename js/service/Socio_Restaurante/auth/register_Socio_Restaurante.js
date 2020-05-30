@@ -1,3 +1,20 @@
+$(document).ready(function() { 
+    fetch("js/api/tipos_cocina.json")
+    .then(response => {  
+        var select = document.getElementsByName("tipococina")[0];
+        response.json().then(function(dato) {    
+            dato.tiposcocina.forEach( tipo => { 
+                var option = document.createElement("option");
+                option.text = tipo;
+                select.add(option);
+            });
+        });
+    })
+    .catch(err => {
+        console.log(err);
+    });
+ });
+
 const formRegister = document.getElementById('formRegister');
 
 formRegister.addEventListener('submit',(e)=>{
