@@ -1,13 +1,22 @@
 ///Formulario de registro
 const formRegister = document.getElementById('formRegister');
+///carga cuando el documento ya este listo
 $(document).ready(function() { 
+    ///mostrar los tipo de cocina
     fetch("js/api/tipos_cocina.json")
     .then(response => {  
+        ///get element por nombre
+        ///solo la primera coincidencia
         var select = document.getElementsByName("tipococina")[0];
-        response.json().then(function(dato) {    
+        response.json().then(function(dato) {  
+            ///ciclo arreglo de respuesta  
             dato.tiposcocina.forEach( tipo => { 
+                ///creo un elemento objectPosition
+                ///agrego value y text en la option
                 var option = document.createElement("option");
+                option.value = tipo;
                 option.text = tipo;
+                ///agrego a el select la option
                 select.add(option);
             });
         });
@@ -15,9 +24,12 @@ $(document).ready(function() {
     .catch(err => {
         console.log(err);
     });
+    ///consultar la ciudad calle y otros datos del usuario por medio de su ubicacion
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {  
+            ///coordenadas actuales
             var latlng = {lat: parseFloat(position.coords.latitude), lng: parseFloat(position.coords.longitude)};
+            
             var geocoder = new google.maps.Geocoder;
             geocoder.geocode({
                 'location': latlng
