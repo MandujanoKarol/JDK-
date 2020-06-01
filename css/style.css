@@ -9563,3 +9563,12 @@ body.md-skin {
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .iti__flag {background-image: url("../img/intlTelInput/flags@2x.png");}
 }
+
+.form-group.has-warning .fileinput .fileinput-preview{color:#8a6d3b !important}
+.form-group.has-warning .fileinput .thumbnail{border-color:#faebcc !important}
+
+.form-group.has-error .fileinput .fileinput-preview{color:#a94442 !important}
+.form-group.has-error .fileinput .thumbnail{border-color:#ebccd1 !important}
+
+.form-group.has-success .fileinput .fileinput-preview{color:#3c763d !important}
+.form-group.has-success .fileinput .thumbnail{border-color:#d6e9c6 !important}
