@@ -54,6 +54,41 @@ const formRegisterUser = document.getElementById('formRegisterUser');
 
 });*/
 
+///carga cuando el documento ya este listo
+$(document).ready(function() {  
+    ///consultar la ciudad calle y otros datos del usuario por medio de su ubicacion
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {  
+            ///coordenadas actuales
+            var latlng = {lat: parseFloat(position.coords.latitude), lng: parseFloat(position.coords.longitude)}; 
+            var geocoder = new google.maps.Geocoder;
+            geocoder.geocode({
+                'location': latlng
+                // ej. "-34.653015, -58.674850"
+            }, function(results, status) {
+                // si la solicitud fue exitosa
+                if (status === google.maps.GeocoderStatus.OK) {
+                    // si encontró algún resultado.
+                    if (results[1]) {
+                    console.log(results[1].formatted_address); 
+                    var arreglo = results[1].formatted_address.split(",",4);
+                    var direccion=arreglo[0];
+                    var ciudad=arreglo[1];  
+                    document.forms["formRegisterUser"]["direccion"].value =direccion;
+                    document.forms["formRegisterUser"]["ciudad"].value =ciudad;
+                    }
+                }
+            });
+            console.log(latlng);
+        }, function(error) {
+            console.log(error);
+        });
+    }
+    else {
+        console.log("error ubicacion");
+    }
+
+ });
 function validate() {
     
     var errores=0;  
