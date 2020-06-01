@@ -74,8 +74,8 @@ $(document).ready(function() {
                     var arreglo = results[1].formatted_address.split(",",4);
                     var direccion=arreglo[0];
                     var ciudad=arreglo[1];  
-                    document.forms["formRegisterUser"]["direccion"].value =direccion;
-                    document.forms["formRegisterUser"]["ciudad"].value =ciudad;
+                    document.forms["formRegisterUser"]["direccion"].value =direccion.trim();
+                    document.forms["formRegisterUser"]["ciudad"].value =ciudad.trim();
                     }
                 }
             });
