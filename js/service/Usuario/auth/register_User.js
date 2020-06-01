@@ -70,10 +70,10 @@ $(document).ready(function() {
                 if (status === google.maps.GeocoderStatus.OK) {
                     // si encontró algún resultado.
                     if (results[1]) {
-                    console.log(results[1].formatted_address); 
+                    console.log(results[1]); 
                     var arreglo = results[1].formatted_address.split(",",4);
                     var direccion=arreglo[0];
-                    var ciudad=arreglo[1];  
+                    var ciudad=arreglo[2];  
                     document.forms["formRegisterUser"]["direccion"].value =direccion.trim();
                     document.forms["formRegisterUser"]["ciudad"].value =ciudad.trim();
                     }
