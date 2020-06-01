@@ -70,12 +70,8 @@ $(document).ready(function() {
                 if (status === google.maps.GeocoderStatus.OK) {
                     // si encontró algún resultado.
                     if (results[1]) {
-                    console.log(results[1]); 
-                    var arreglo = results[1].formatted_address.split(",",4);
-                    var direccion=arreglo[0];
-                    var ciudad=arreglo[2];  
-                    document.forms["formRegisterUser"]["direccion"].value =direccion.trim();
-                    document.forms["formRegisterUser"]["ciudad"].value =ciudad.trim();
+                    console.log(results[1]);  
+                    document.forms["formRegisterUser"]["direccion"].value =results[1].formatted_address; 
                     }
                 }
             });
@@ -207,23 +203,6 @@ function validate() {
         else{
            document.getElementById("error_direccion").innerHTML = "";
            printerrorform("direccion","has-success"); 
-        }
-        ///Ciudad
-        if (document.forms["formRegisterUser"]["ciudad"].value == "") { 
-            printerrorform("ciudad","has-error")
-            document.getElementById("error_ciudad").innerHTML = "enter the ciudad";
-            errores++;
-        }
-        else if(!/^[a-zA-Z]*$/g.test(document.formRegisterUser.ciudad.value))
-        {  
-            printerrorform("ciudad","has-warning");
-            document.getElementById('error_ciudad').innerHTML="only alphanumeric character  required";
-            document.formRegisterUser.ciudad.focus();
-            return false;
-        }
-        else{
-           document.getElementById("error_ciudad").innerHTML = "";
-           printerrorform("ciudad","has-success")
         } 
         ///si hay errores
         if(errores!=0){ 
