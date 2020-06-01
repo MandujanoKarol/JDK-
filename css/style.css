@@ -9558,3 +9558,8 @@ body.md-skin {
     margin: 0;
   }
 }
+.iti__flag {background-image: url("../img/intlTelInput/flags.png");}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .iti__flag {background-image: url("../img/intlTelInput/flags@2x.png");}
+}
