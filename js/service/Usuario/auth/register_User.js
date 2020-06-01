@@ -54,6 +54,41 @@ const formRegisterUser = document.getElementById('formRegisterUser');
 
 });*/
 
+///carga cuando el documento ya este listo
+$(document).ready(function() {  
+    ///consultar la ciudad calle y otros datos del usuario por medio de su ubicacion
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {  
+            ///coordenadas actuales
+            var latlng = {lat: parseFloat(position.coords.latitude), lng: parseFloat(position.coords.longitude)}; 
+            var geocoder = new google.maps.Geocoder;
+            geocoder.geocode({
+                'location': latlng
+                // ej. "-34.653015, -58.674850"
+            }, function(results, status) {
+                // si la solicitud fue exitosa
+                if (status === google.maps.GeocoderStatus.OK) {
+                    // si encontró algún resultado.
+                    if (results[1]) {
+                    console.log(results[1].formatted_address); 
+                    var arreglo = results[1].formatted_address.split(",",4);
+                    var direccion=arreglo[0];
+                    var ciudad=arreglo[1];  
+                    document.forms["formRegisterUser"]["direccion"].value =direccion.trim();
+                    document.forms["formRegisterUser"]["ciudad"].value =ciudad.trim();
+                    }
+                }
+            });
+            console.log(latlng);
+        }, function(error) {
+            console.log(error);
+        });
+    }
+    else {
+        console.log("error ubicacion");
+    }
+
+ });
 function validate() {
     
     var errores=0;  
@@ -228,55 +263,4 @@ var input = document.querySelector("#phone");
     //preferredCountries: ["mx","us" ],
     onlyCountries: ["mx"]
   });
-  function printerrorform(nameinput,error){
-    parentnode=document.getElementsByName(nameinput)[0].parentNode.classList;
-    parentnodevalue=document.getElementsByName(nameinput)[0].parentNode.classList.value;
-    ///sucess
-    if(error=="has-success"){ 
-    if(parentnodevalue=="form-group"){
-        parentnode.toggle("has-success")
-    }else if(parentnodevalue=="form-group has-warning"){
-        parentnode.replace("has-warning", "has-success");
-    }else if(parentnodevalue=="form-group has-error"){
-        parentnode.replace("has-error", "has-success");
-    }else if(parentnodevalue=="iti iti--allow-dropdown"){
-        parentnode.toggle("has-success");
-    }else if(parentnodevalue=="iti iti--allow-dropdown has-warning"){
-        parentnode.replace("has-warning", "has-success");
-    }else if(parentnodevalue=="iti iti--allow-dropdown has-error"){
-        parentnode.replace("has-error", "has-success");
-    }
-    }
-    ///warning 
-    if(error=="has-warning"){ 
-        if(parentnodevalue=="form-group"){
-            parentnode.toggle("has-warning")
-        }else if(parentnodevalue=="form-group has-success"){
-            parentnode.replace("has-success", "has-warning");
-        }else if(parentnodevalue=="form-group has-error"){
-            parentnode.replace("has-error", "has-warning");
-        }else if(parentnodevalue=="iti iti--allow-dropdown"){
-            parentnode.toggle("has-warning");
-        }else if(parentnodevalue=="iti iti--allow-dropdown has-success"){
-            parentnode.replace("has-success", "has-warning");
-        }else if(parentnodevalue=="iti iti--allow-dropdown has-error"){
-            parentnode.replace("has-error", "has-warning");
-        }
-    }
-    ///danger
-    if(error=="has-error"){ 
-        if(parentnodevalue=="form-group"){
-            parentnode.toggle("has-error")
-        }else if(parentnodevalue=="form-group has-success"){
-            parentnode.replace("has-success", "has-error");
-        }else if(parentnodevalue=="form-group has-warning"){
-            parentnode.replace("has-warning", "has-error");
-        }else if(parentnodevalue=="iti iti--allow-dropdown"){
-            parentnode.toggle("has-error");
-        }else if(parentnodevalue=="iti iti--allow-dropdown has-success"){
-            parentnode.replace("has-success", "has-error");
-        }else if(parentnodevalue=="iti iti--allow-dropdown has-warning"){
-            parentnode.replace("has-warning", "has-error");
-        } 
-    }
-}
+  
