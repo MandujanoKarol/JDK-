@@ -187,7 +187,7 @@ function register(){
                     Longitud: position.coords.longitude
                 } 
                 //registrar nuevos datos en firebase database with id user auth
-                return db.collection('usuarios').doc(cred.user.uid).set({
+                return db.collection('cuentasusuarios').doc(cred.user.uid).set({
                     "nombre": document.forms["formRegisterUser"]['nombre'].value,
                     "apellido": document.forms["formRegisterUser"]['apellido'].value,
                     "correo":document.forms["formRegisterUser"]['correo'].value,
