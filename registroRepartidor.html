@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Pigmento | RegistroU</title>
+    <title>Pigmento | RegistroRep</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -18,6 +18,8 @@
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/intlTelInput/intlTelInput.css" rel="stylesheet"> 
+    <!-- Toastr style -->
+    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
     
 </head>
 
@@ -33,44 +35,40 @@
             <h3>Registro de usuario</h3>
             <p>Crea una cuenta y conoce nuestro servicio.</p>
 
-            <form class="m-t" role="form"  name="formRegisterUser" action="" onsubmit="return validate()" method="post">
+            <form class="m-t" role="form"  name="formRegisterUser"   >
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Nombre" name="nombre">
+                    <input type="text" class="form-control" placeholder="Nombre" name="nombre" onkeyup="onkeyupnombre()">
                     <span id ="error_nombre" class="help-inline"></span></td>
-                </div>
-
+                </div> 
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Apellido" name="apellido">
+                    <input type="text" class="form-control" placeholder="Apellido" name="apellido" onkeyup="onkeyupapellido()">
                     <span id ="error_apellido" class="help-inline"></span></td>
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Correo electrónico" name="correo">
+                    <input type="email" class="form-control" placeholder="Correo electrónico" name="correo" onkeyup="onkeyupemail()">
                     <span id ="error_correo" class="help-inline"></span></td>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Contraseña" name="contrasena">
+                    <input type="password" class="form-control" placeholder="Contraseña" name="contrasena" onkeyup="onkeyuppassword()">
                     <span id ="error_contrasena" class="help-inline"></span></td>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Repite la contraseña" name="rcontrasena">
+                    <input type="password" class="form-control" placeholder="Repite la contraseña" name="rcontrasena" onkeyup="onkeyuprpassword()">
                     <span id ="error_rcontrasena" class="help-inline"></span></td>
                 </div>
                 <div class="form-group"> 
-                    <input id="phone" type="tel" class="form-control" placeholder="N° Teléfono" name="telefono" onkeyup="separartelefono()">
+                    <input id="phone" type="tel" class="form-control" placeholder="N° Teléfono" name="telefono" onkeyup="onkeyuptelefono()">
                     <span id ="error_telefono" class="help-inline"></span></td>
                 </div>
                 <div class="form-group">
-                    <textarea type="text" class="form-control" placeholder="Dirección" name="direccion"></textarea>
+                    <textarea type="text" class="form-control" placeholder="Dirección" name="direccion" onkeyup="onkeyupdireccion()"></textarea>
                     <span id ="error_direccion" class="help-inline"></span></td>
-                </div>
-                
-
-                <button type="submit" style="font-weight: bold; color: white;"
-                    class="btn btn-primaryNaranja block full-width m-b">Registrar</button>
-
+                </div> 
+            </form>
+            <button type="submit" style="font-weight: bold; color: white;"
+                    class="btn btn-primaryNaranja block full-width m-b"  onclick="validator()">Registrar</button> 
                 <p class="text-muted text-center"><small>¿Ya tienes una cuenta?</small></p>
                 <a class="btn btn-sm btn-white btn-block" href="login.html">Ingresar</a>
-            </form>
             <p class="m-t"> <small>Copyright &copy; 2020</small> </p>
         </div>
     </div>
@@ -78,7 +76,7 @@
     <!-- Mainly scripts -->
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.js"></script> 
     <!-- iCheck -->
     <script src="js/plugins/iCheck/icheck.min.js"></script>
     <script>
@@ -98,9 +96,13 @@
     <!-- GOOGLE MAPS  -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADjOfdGIg-7JiqjoTstMN9el4g-nLhxxA&libraries=geometry" async defer></script>
     
+    <!-- Toastr -->
+    <script src="js/plugins/toastr/toastr.min.js"></script>
+
     <script src="js/service/bd.js"></script>
+    <script src="js/service/floatingMessage.js"></script>
     <script src="js/service/prirntsmessagesforms.js"></script>
-    <script src="js/service/Usuario/auth/register_User.js"></script>
+    <script src="js/service/Socio_Repartidor/auth/registro_Socio_Repartidor.js"></script>
 
     
 </body>

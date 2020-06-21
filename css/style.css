@@ -9564,6 +9564,7 @@ body.md-skin {
 .has-error .form-control:focus {
   border-color: #ed5565 !important;
 }
+
 .has-success .control-label {
   color: #1ab394 !important;
 }
@@ -9572,4 +9573,13 @@ body.md-skin {
 }
 .has-error .control-label {
   color: #ed5565 !important;
+}
+
+
+.has-default .form-control,
+.has-default .form-control:focus {
+  border-color: #e5e6e7 !important; 
+}
+.has-default .control-label {
+  color: #e5e6e7 !important;
 }
