@@ -150,12 +150,16 @@ function onkeyuptelefono(){
             }
             
         }
+    }else{
+        printerrorform("telefono","has-error");
+        document.getElementById("error_telefono").innerHTML = "Ingrese el telefono";
+        return 1;
     }
 } 
 function onkeyupdireccion(){ 
     ///Direccion
     if (document.forms["formRegisterUser"]["direccion"].value == "") { 
-        printerrorform("direccion","has-error")
+        printerrorform("direccion","has-error");
         document.getElementById("error_direccion").innerHTML = "Ingrese la direccion"; 
         return 1;
     } 
@@ -173,9 +177,7 @@ function register(){
     ////if the navigator containe geolocation
     if (navigator.geolocation) { 
         ///create User With Email And Password
-        auth.createUserWithEmailAndPassword(email,password).then( cred =>{ 
-            ///clear form
-            document.forms["formRegisterUser"].reset();   
+        auth.createUserWithEmailAndPassword(email,password).then( cred =>{  
             ///Almacenar key del actual usuario logueado en localStorage 
             localStorage.removeItem("uid");
             localStorage.setItem("uid", cred.user.uid);
@@ -196,8 +198,11 @@ function register(){
                     "coordenadas":coordenadas,
                     "fechaRegistro":new Date().toLocaleString(),
                     "estado":parseInt(1)
-                }).then(function() { 
-                    formRegisterUser.reset();  
+                }).then(function(result) { 
+                    floatingMessage("Usuario Registrado!",result,"success");
+                    ///clear form
+                    document.forms["formRegisterUser"].reset();  
+                    reiniciarestilosform();
                 }).catch(function(error) {
                     floatingMessage(error.code,"","firebase");
                 });
@@ -234,15 +239,14 @@ function validarForms() {
     }
 };
 ////funcion click button
-function validator(){ 
-    console.log(validarForms().toString());
+function validator(){   
     if(validarForms().toString()=="true"){
         register();
     }else{
-
+        floatingMessage("Formulario","Ingrese cada uno de los paramentros requeridos!","error");
     }
-}
-
+} 
+///Telefono
 var input = document.querySelector("#phone");
   window.intlTelInput(input, {
     // any initialisation options go here
