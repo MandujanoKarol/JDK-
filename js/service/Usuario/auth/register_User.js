@@ -197,6 +197,7 @@ function register(){
                     "direccion": document.forms["formRegisterUser"]['direccion'].value,
                     "coordenadas":coordenadas,
                     "fechaRegistro":new Date().toLocaleString(),
+                    "tipo":"usuario",
                     "estado":parseInt(1)
                 }).then(function(result) { 
                     floatingMessage("Usuario Registrado!",result,"success");
