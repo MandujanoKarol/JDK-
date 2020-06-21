@@ -168,7 +168,7 @@ function onkeyupdireccion(){
     }
 }
  ////Funcion register
-function register(){
+ function register(){
     //data
     const email = document.forms["formRegisterUser"]['correo'].value;
     const password = document.forms["formRegisterUser"]['contrasena'].value;  
@@ -180,7 +180,7 @@ function register(){
             localStorage.removeItem("uid");
             localStorage.setItem("uid", cred.user.uid);
             ///get position
-            navigator.geolocation.getCurrentPosition(function(position) { 
+           navigator.geolocation.getCurrentPosition(function(position) { 
                 ///cords
                 var coordenadas = {
                     Latitud: position.coords.latitude, 
@@ -195,13 +195,10 @@ function register(){
                     "direccion": document.forms["formRegisterUser"]['direccion'].value,
                     "coordenadas":coordenadas,
                     "fechaRegistro":new Date().toLocaleString(),
-                    "tipo":"usuario",
+                    "tipo":"repartidor",
                     "estado":parseInt(1)
                 }).then(function(result) { 
-                    floatingMessage("Usuario Registrado!",result,"success");
-                    ///clear form
-                    document.forms["formRegisterUser"].reset();  
-                    reiniciarestilosform();
+                    window.location.href = "homeRepartidor.html"; 
                 }).catch(function(error) {
                     floatingMessage(error.code,"","firebase");
                 });
@@ -238,9 +235,9 @@ function validarForms() {
     }
 };
 ////funcion click button
-function validator(){   
+function validator(){    
     if(validarForms().toString()=="true"){
-        register();
+       register();
     }else{
         floatingMessage("Formulario","Ingrese cada uno de los paramentros requeridos!","error");
     }
@@ -253,5 +250,4 @@ var input = document.querySelector("#phone");
     initialCountry:"mx",
     //preferredCountries: ["mx","us" ],
     onlyCountries: ["mx"]
-  });
-  
+  }); 

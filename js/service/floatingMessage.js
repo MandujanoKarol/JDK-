@@ -1,5 +1,5 @@
 ///funcion de mensaje de error firebase
-function mensajeError(codigo) { 
+async function mensajeError(codigo) { 
     let mensaje = ''; 
     switch(codigo) {
         case 'auth/wrong-password':
@@ -25,7 +25,7 @@ function mensajeError(codigo) {
       }
     return mensaje;
 }
-function floatingMessage(title,message,type){
+async function floatingMessage(title,message,type){
     if(type=="firebase"){
         setTimeout(function () {
             toastr.options = {
@@ -55,6 +55,17 @@ function floatingMessage(title,message,type){
                 timeOut: 4000
             };
             toastr.error(message,title);
+        }, 1300);
+    }else if(type=="registeruser"){
+        setTimeout(function () {
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                showMethod: 'slideDown',
+                timeOut: 4000,
+                onclick: function() {console.log('you clicked on the info toaster n.1')}
+            };
+            toastr.success(message,title);
         }, 1300);
     }
     

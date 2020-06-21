@@ -16,7 +16,8 @@
 
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
+ <!-- Toastr style -->
+ <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
 </head>
 
 <body class="gray-bg">
@@ -33,7 +34,7 @@
             <p>Conéctate con los mejores establecimientos de la ciudad, desde la comodidad de tu hogar.
             </p>
             <p>Iniciar Sesión</p>
-            <form class="m-t" role="form" action="index.html" onsubmit="return validateForm()" id="formLogIn">
+            <form class="m-t" role="form" action="index.html" id="formLogIn">
                 <div class="form-group">
                     <input type="email" class="form-control" placeholder="Ingresa tu correo electrónico" required="" name="email">
                 </div>
@@ -60,6 +61,9 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script> 
+<!-- Toastr -->
+<script src="js/plugins/toastr/toastr.min.js"></script>
+<script src="js/service/floatingMessage.js"></script>
 
     <script src="js/service/bd.js"></script>
     <script src="js/service/floatingMessage.js"></script>

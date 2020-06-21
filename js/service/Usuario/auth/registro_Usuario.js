@@ -195,13 +195,10 @@ function register(){
                     "direccion": document.forms["formRegisterUser"]['direccion'].value,
                     "coordenadas":coordenadas,
                     "fechaRegistro":new Date().toLocaleString(),
-                    "tipo":"restaurante",
+                    "tipo":"usuario",
                     "estado":parseInt(1)
                 }).then(function(result) { 
-                    floatingMessage("Usuario Registrado!",result,"success");
-                    ///clear form
-                    document.forms["formRegisterUser"].reset();  
-                    reiniciarestilosform();
+                    window.location.href = "homeUsuario.html"; 
                 }).catch(function(error) {
                     floatingMessage(error.code,"","firebase");
                 });
@@ -254,3 +251,4 @@ var input = document.querySelector("#phone");
     //preferredCountries: ["mx","us" ],
     onlyCountries: ["mx"]
   });
+  
