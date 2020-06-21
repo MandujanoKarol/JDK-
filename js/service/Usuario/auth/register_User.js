@@ -1,5 +1,3 @@
-
-
 ///carga cuando el documento ya este listo
 $(document).ready(function() {  
     ///consultar la ciudad calle y otros datos del usuario por medio de su ubicacion
