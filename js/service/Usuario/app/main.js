@@ -157,9 +157,11 @@ function buscarplatillostipo(sel){
         querySnapshot.forEach(doccollection => { 
             db.collection("Restauranes").doc(doccollection.id).collection("Platillos").get()
             .then(querySnapshot => { 
-                if(doc.data().categoria===categoria){
+                querySnapshot.forEach(doc => {  
+                    if(doc.data().categoria===categoria){
                     listaplatillos.push(doc);
                 }
+                });
             }); 
         });
     }); 
