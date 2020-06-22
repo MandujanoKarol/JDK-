@@ -151,12 +151,13 @@ function limpiarareasplatillos(){
 function buscarplatillostipo(sel){
     var listaplatillos=[];
     var categoria=sel.value;
+    console.log("categoria a buscar:" +categoria);
     db.collection('Restauranes').get().then( querySnapshot => {
         limpiarareasplatillos();
         querySnapshot.forEach(doccollection => { 
             db.collection("Restauranes").doc(doccollection.id).collection("Platillos").get()
             .then(querySnapshot => { 
-                if(doc.data().caategoria===categoria){
+                if(doc.data().categoria===categoria){
                     listaplatillos.push(doc);
                 }
             }); 
