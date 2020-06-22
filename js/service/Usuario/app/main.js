@@ -65,6 +65,7 @@ function limpiarareasplatillos(){
     document.getElementById('div7').innerHTML = "";
     document.getElementById('div8').innerHTML = "";
 }
+var ifbusqueda=0;
 function buscarplatillostipo(sel){ 
     var categoria=sel.value;
     console.log("categoria a buscar:" +categoria);
@@ -72,6 +73,7 @@ function buscarplatillostipo(sel){
         limpiarareasplatillos();
         queryCollection.forEach(doccollection => { 
             if(doccollection.data().categoria===categoria){
+            ifbusqueda=1;
             db.collection("Restauranes").doc(doccollection.id).collection("Platillos").get()
             .then(querySubCollection => { 
                 todosplatillos(doccollection,querySubCollection)
@@ -79,6 +81,10 @@ function buscarplatillostipo(sel){
             }
         });
     });   
+    if(ifbusqueda===0){
+        document.getElementById('mensajelistaplatillos').innerHTML = "Actualmente no hay ningun platillo de la cocina: "+categoria;
+    }
+    
 }
 var tem=1;
 var position=0;
