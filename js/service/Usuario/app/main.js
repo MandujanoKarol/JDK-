@@ -22,15 +22,15 @@
         console.log(err);
     });
 
-    db.collection('Restauranes').get().then( querySnapshot => {
+    db.collection('Restauranes').get().then( queryCollection => {
         limpiarareasplatillos();
-        querySnapshot.forEach(doccollection => {
+        queryCollection.forEach(doccollection => {
             ///documents
             ////console.log(doc.id, " => ", doc.data());  
             ////subcollection
             db.collection("Restauranes").doc(doccollection.id).collection("Platillos").get()
-            .then(querySnapshot => { 
-                todosplatillos(doccollection,querySnapshot);
+            .then(querySubCollection => { 
+                todosplatillos(doccollection,querySubCollection);
             }); 
         });
     });  
@@ -54,12 +54,12 @@ auth.onAuthStateChanged(function(user) {
         window.location.href = "registroUsuario.html"; 
     }
 });
-function todosplatillos(doccollection,querySnapshot){
+function todosplatillos(doccollection,querySubCollection){
     var tem=1;
     var divs=["div1","div2","div3","div4","div5","div6","div7","div8"];
     var cants=[4,8,12,16,20,24,28,32];
     var position=0;
-    querySnapshot.forEach(doc => {  
+    querySubCollection.forEach(doc => {  
         if(tem==cants[position]){
             position++;
         }
@@ -148,25 +148,21 @@ function limpiarareasplatillos(){
     document.getElementById('div7').innerHTML = "";
     document.getElementById('div8').innerHTML = "";
 }
-function buscarplatillostipo(sel){
-    var listaplatillos=[];
+function buscarplatillostipo(sel){ 
     var categoria=sel.value;
     console.log("categoria a buscar:" +categoria);
-    db.collection('Restauranes').get().then( querySnapshot => {
+    db.collection('Restauranes').get().then( queryCollection => {
         limpiarareasplatillos();
-        querySnapshot.forEach(doccollection => { 
+        queryCollection.forEach(doccollection => { 
+            if(doccollection.data().categoria===categoria){
             db.collection("Restauranes").doc(doccollection.id).collection("Platillos").get()
-            .then(querySnapshot => { 
-                querySnapshot.forEach(doc => {  
-                    if(doc.data().categoria===categoria){
-                    listaplatillos.push(doc);
-                }
+            .then(querySubCollection => { 
+                querySubCollection.forEach(doc => {   
+                        console.log(doc.id, " => ", doc.data()); 
                 });
             }); 
+            }
         });
-    }); 
-    listaplatillos.forEach(platillo => { 
-        console.log(platillo.id, " => ", platillo.data()); 
     });   
 }
   function cerrarSesion(){
