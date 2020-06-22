@@ -56,6 +56,7 @@ auth.onAuthStateChanged(function(user) {
 });
 
 function limpiarareasplatillos(){
+    document.getElementById('mensajelistaplatillos').innerHTML = "";
     document.getElementById('div1').innerHTML = "";
     document.getElementById('div2').innerHTML = "";
     document.getElementById('div3').innerHTML = "";
@@ -65,8 +66,9 @@ function limpiarareasplatillos(){
     document.getElementById('div7').innerHTML = "";
     document.getElementById('div8').innerHTML = "";
 }
-var ifbusqueda=0;
+
 function buscarplatillostipo(sel){ 
+    var ifbusqueda=0;
     var categoria=sel.value;
     console.log("categoria a buscar:" +categoria);
     db.collection('Restauranes').get().then( queryCollection => {
