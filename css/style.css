@@ -6469,6 +6469,13 @@ del {
   color: #bebec3;
   font-weight: 600;
 }
+.product-imitationfood {
+  text-align: center; 
+  background-color: #f8f8f9;
+  color: #bebec3;
+  font-weight: 600;
+}
+
 .cart-product-imitation {
   text-align: center;
   padding-top: 30px;
