@@ -68,6 +68,7 @@ function limpiarareasplatillos(){
 var ifbusqueda= 0;
 function buscarplatillostipo(sel){  
     var categoria=sel.value;
+    ifbusqueda=0;
     console.log("categoria a buscar:" +categoria);
     db.collection('Restauranes').get().then( queryCollection => {
         limpiarareasplatillos();
