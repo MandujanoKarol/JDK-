@@ -68,7 +68,7 @@ function limpiarareasplatillos(){
 let objbusqueda = {
     ifbusqueda: 0,
     get ifbusqueda() {
-      return this.ifbusqueda 
+      return ifbusqueda 
     },
     set ifbusqueda(valor) { 
       this.ifbusqueda = valor; 
