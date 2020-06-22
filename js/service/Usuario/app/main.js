@@ -173,7 +173,7 @@ function todosplatillos(doccollection,querySubCollection){
     tem=1;
     position=0;
 }
-  function cerrarSesion(){
+function cerrarSesion(){
     var uid = localStorage.getItem("uid");
     auth.signOut().then(()=>{  
         localStorage.removeItem("uid");
@@ -183,4 +183,4 @@ function todosplatillos(doccollection,querySubCollection){
     }).then(()=>{
         window.location.href = "login.html"; 
     });
-  }
+}
