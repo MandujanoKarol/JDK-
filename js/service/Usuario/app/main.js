@@ -66,26 +66,23 @@ function limpiarareasplatillos(){
     document.getElementById('div8').innerHTML = "";
 }
 
-function buscarplatillostipo(sel){ 
-    document.getElementById('mensajelistaplatillos').innerHTML = "";
-    var ifbusqueda=0;
+function buscarplatillostipo(sel){  
     var categoria=sel.value;
     console.log("categoria a buscar:" +categoria);
     db.collection('Restauranes').get().then( queryCollection => {
         limpiarareasplatillos();
         queryCollection.forEach(doccollection => { 
             if(doccollection.data().categoria===categoria){
-            ifbusqueda=1;
+                document.getElementById('mensajelistaplatillos').innerHTML = "";
             db.collection("Restauranes").doc(doccollection.id).collection("Platillos").get()
             .then(querySubCollection => { 
                 todosplatillos(doccollection,querySubCollection)
             }); 
+            }else{
+                document.getElementById('mensajelistaplatillos').innerHTML = "Actualmente no hay ningun tipo de comida: "+categoria;
             }
         });
-    });   
-    if(ifbusqueda===0){
-        document.getElementById('mensajelistaplatillos').innerHTML = "Actualmente no hay ningun tipo de comida: "+categoria;
-    }    
+    });    
 }
 var tem=1;
 var position=0;
