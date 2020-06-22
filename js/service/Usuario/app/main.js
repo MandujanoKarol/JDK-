@@ -184,3 +184,6 @@ function cerrarSesion(){
         window.location.href = "login.html"; 
     });
 }
+function comprarproducto(){
+    
+}
