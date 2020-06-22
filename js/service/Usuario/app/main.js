@@ -29,8 +29,8 @@
             ////console.log(doc.id, " => ", doc.data());  
             ////subcollection
             db.collection("Restauranes").doc(doccollection.id).collection("Platillos").get()
-            .then(querySubCollection => { 
-                todosplatillos(doccollection,querySubCollection);
+            .then(docSubCollection => { 
+                todosplatillos(doccollection,docSubCollection);
             }); 
         });
     });  
@@ -54,7 +54,6 @@ auth.onAuthStateChanged(function(user) {
         window.location.href = "registroUsuario.html"; 
     }
 });
-
 function limpiarareasplatillos(){ 
     document.getElementById('div1').innerHTML = "";
     document.getElementById('div2').innerHTML = "";
@@ -77,8 +76,8 @@ function buscarplatillostipo(sel){
                 ifbusqueda=1;
                 document.getElementById('mensajelistaplatillos').innerHTML = "";
             db.collection("Restauranes").doc(doccollection.id).collection("Platillos").get()
-            .then(querySubCollection => { 
-                todosplatillos(doccollection,querySubCollection)
+            .then(docSubCollection => { 
+                todosplatillos(doccollection,docSubCollection);
             }); 
             }else{
                 if(ifbusqueda===0){
@@ -90,10 +89,10 @@ function buscarplatillostipo(sel){
 }
 var tem=1;
 var position=0;
-function todosplatillos(doccollection,querySubCollection){ 
+function todosplatillos(doccollection,docSubCollection){ 
     var divs=["div1","div2","div3","div4","div5","div6","div7","div8"];
     var cants=[4,8,12,16,20,24,28,32]; 
-    querySubCollection.forEach(doc => {  
+    docSubCollection.forEach(doc => {  
         if(tem==cants[position]){
             position++;
         }  
@@ -156,12 +155,9 @@ function todosplatillos(doccollection,querySubCollection){
         var abutton = document.createElement("a");
         abutton.setAttribute("class", "btn btn-xs btn-outline btn-primary"); 
         abutton.setAttribute("id", "abutton" + doc.id); 
+        abutton.setAttribute("OnClick", "comprarproducto(" + JSON.stringify( doccollection.id )+","+JSON.stringify( doc.id )+ ")");
         abutton.textContent = "Comprar";
-        document.getElementById("divbutton" + doc.id).appendChild(abutton);
-
-        var ibutton = document.createElement("i");
-        ibutton.setAttribute("class", "fa fa-long-arrow-right");  
-        document.getElementById("abutton" + doc.id).appendChild(ibutton);
+        document.getElementById("divbutton" + doc.id).appendChild(abutton); 
         }else{ 
             var textagotado = document.createElement("span");
             textagotado.setAttribute("class", "label label-danger float-right"); 
@@ -184,6 +180,18 @@ function cerrarSesion(){
         window.location.href = "login.html"; 
     });
 }
-function comprarproducto(){
-    
+function comprarproducto(iddocRestaurante,iddocplatillo){
+    var uid = localStorage.getItem("uid"); 
+    return db.collection('compras').doc().set({
+        "docidrestaurante": iddocRestaurante,
+        "docidplatillo": iddocplatillo,
+        "uidrepartidor":"",
+        "uidusuario":uid, 
+        "fechaCompra":new Date().toLocaleString(), 
+        "estado":parseInt(0)/////0 en preparacion////1 encamino/////2 entregado
+    }).then(function(result) { 
+        floatingMessage("Pedido realizado!","Tu pedido esta en preparacion!","success");
+    }).catch(function(error) {
+        floatingMessage(error.code,"","firebase");
+    });
 }
