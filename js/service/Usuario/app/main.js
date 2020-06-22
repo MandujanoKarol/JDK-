@@ -22,95 +22,15 @@
         console.log(err);
     });
 
-    db.collection('Restauranes').onSnapshot( querySnapshot => {
-                document.getElementById('div1').innerHTML = "";
-                document.getElementById('div2').innerHTML = "";
-                document.getElementById('div3').innerHTML = "";
-                document.getElementById('div4').innerHTML = "";
+    db.collection('Restauranes').get().then( querySnapshot => {
+        limpiarareasplatillos();
         querySnapshot.forEach(doccollection => {
             ///documents
-            ////console.log(doc.id, " => ", doc.data());
-
+            ////console.log(doc.id, " => ", doc.data());  
             ////subcollection
             db.collection("Restauranes").doc(doccollection.id).collection("Platillos").get()
             .then(querySnapshot => { 
-                var tem=1;
-                var divs=["div1","div2","div3","div4"];
-                var cants=[4,8,12,14];
-                var position=0;
-                querySnapshot.forEach(doc => {  
-                    if(tem==cants[position]){
-                        position++;
-                    }
-                    console.log(doc.id, " => ", doc.data());  
-                    var x = document.createElement("div");
-                    x.setAttribute("class", "col-md-3");
-                    x.setAttribute("id", "div" + doc.id); 
-                    document.getElementById(divs[position]).appendChild(x); 
-
-                    var divibox = document.createElement("div");
-                    divibox.setAttribute("class", "ibox"); 
-                    divibox.setAttribute("id", "divibox" + doc.id);
-                    document.getElementById("div" + doc.id).appendChild(divibox);
-                    
-                    var diviboxcontent = document.createElement("div");
-                    diviboxcontent.setAttribute("class", "ibox-content product-box"); 
-                    diviboxcontent.setAttribute("id", "diviboxcontent" + doc.id);
-                    document.getElementById("divibox" + doc.id).appendChild(diviboxcontent);
-                    ///imagen
-                    var divproductimitation = document.createElement("div");
-                    divproductimitation.setAttribute("class", "product-imitationfood"); 
-                    divproductimitation.setAttribute("id", "divproductimitation" + doc.id);
-                    document.getElementById("diviboxcontent" + doc.id).appendChild(divproductimitation);
-
-                    var img = document.createElement("img");
-                    img.setAttribute("class", "img-fluid"); 
-                    img.setAttribute("src", doc.data().photoURL);
-                    document.getElementById("divproductimitation" + doc.id).appendChild(img);
-
-                    var divproductdesc = document.createElement("div");
-                    divproductdesc.setAttribute("class", "product-desc"); 
-                    divproductdesc.setAttribute("id", "divproductdesc" + doc.id);
-                    document.getElementById("diviboxcontent" + doc.id).appendChild(divproductdesc);
-                    //precio
-                    var spanproductprice = document.createElement("span");
-                    spanproductprice.setAttribute("class", "product-price"); 
-                    spanproductprice.textContent = "$"+ doc.data().precio;
-                    document.getElementById("divproductdesc" + doc.id).appendChild(spanproductprice);
-                    //categoria
-                    var smalltextmuted = document.createElement("small");
-                    smalltextmuted.setAttribute("class", "text-muted"); 
-                    smalltextmuted.textContent = doccollection.data().categoria;
-                    document.getElementById("divproductdesc" + doc.id).appendChild(smalltextmuted);
-
-                    var aproductname = document.createElement("a");
-                    aproductname.setAttribute("class", "product-name"); 
-                    aproductname.textContent = doc.data().nombre;
-                    document.getElementById("divproductdesc" + doc.id).appendChild(aproductname);
-
-                    var divdescription = document.createElement("div");
-                    divdescription.setAttribute("class", "small m-t-xs"); 
-                    divdescription.textContent = doc.data().descripcion;
-                    document.getElementById("divproductdesc" + doc.id).appendChild(divdescription);
-
-                    var divbutton = document.createElement("div");
-                    divbutton.setAttribute("class", "m-t text-righ"); 
-                    divbutton.setAttribute("id", "divbutton" + doc.id); 
-                    document.getElementById("divproductdesc" + doc.id).appendChild(divbutton);
-
-                    var abutton = document.createElement("a");
-                    abutton.setAttribute("class", "btn btn-xs btn-outline btn-primary"); 
-                    abutton.setAttribute("id", "abutton" + doc.id); 
-                    abutton.textContent = "Comprar";
-                    document.getElementById("divbutton" + doc.id).appendChild(abutton);
-
-                    var ibutton = document.createElement("i");
-                    ibutton.setAttribute("class", "fa fa-long-arrow-right");  
-                    document.getElementById("abutton" + doc.id).appendChild(ibutton);
-
-                    tem++;
-                }); 
-                
+                todosplatillos(doccollection,querySnapshot);
             }); 
         });
     });  
@@ -133,7 +53,119 @@ auth.onAuthStateChanged(function(user) {
         // User is signed out.
         window.location.href = "registroUsuario.html"; 
     }
-  });
+});
+function todosplatillos(doccollection,querySnapshot){
+    var tem=1;
+    var divs=["div1","div2","div3","div4","div5","div6","div7","div8"];
+    var cants=[4,8,12,16,20,24,28,32];
+    var position=0;
+    querySnapshot.forEach(doc => {  
+        if(tem==cants[position]){
+            position++;
+        }
+        ///console.log(doc.id, " => ", doc.data());  
+        var x = document.createElement("div");
+        x.setAttribute("class", "col-md-3");
+        x.setAttribute("id", "div" + doc.id); 
+        document.getElementById(divs[position]).appendChild(x); 
+
+        var divibox = document.createElement("div");
+        divibox.setAttribute("class", "ibox"); 
+        divibox.setAttribute("id", "divibox" + doc.id);
+        document.getElementById("div" + doc.id).appendChild(divibox);
+        
+        var diviboxcontent = document.createElement("div");
+        diviboxcontent.setAttribute("class", "ibox-content product-box"); 
+        diviboxcontent.setAttribute("id", "diviboxcontent" + doc.id);
+        document.getElementById("divibox" + doc.id).appendChild(diviboxcontent);
+        ///imagen
+        var divproductimitation = document.createElement("div");
+        divproductimitation.setAttribute("class", "product-imitationfood"); 
+        divproductimitation.setAttribute("id", "divproductimitation" + doc.id);
+        document.getElementById("diviboxcontent" + doc.id).appendChild(divproductimitation);
+
+        var img = document.createElement("img");
+        img.setAttribute("class", "img-fluid"); 
+        img.setAttribute("src", doc.data().photoURL);
+        document.getElementById("divproductimitation" + doc.id).appendChild(img);
+
+        var divproductdesc = document.createElement("div");
+        divproductdesc.setAttribute("class", "product-desc"); 
+        divproductdesc.setAttribute("id", "divproductdesc" + doc.id);
+        document.getElementById("diviboxcontent" + doc.id).appendChild(divproductdesc);
+        //precio
+        var spanproductprice = document.createElement("span");
+        spanproductprice.setAttribute("class", "product-price"); 
+        spanproductprice.textContent = "$"+ doc.data().precio;
+        document.getElementById("divproductdesc" + doc.id).appendChild(spanproductprice);
+        //categoria
+        var smalltextmuted = document.createElement("small");
+        smalltextmuted.setAttribute("class", "text-muted"); 
+        smalltextmuted.textContent = doccollection.data().categoria;
+        document.getElementById("divproductdesc" + doc.id).appendChild(smalltextmuted);
+
+        var aproductname = document.createElement("a");
+        aproductname.setAttribute("class", "product-name"); 
+        aproductname.textContent = doc.data().nombre;
+        document.getElementById("divproductdesc" + doc.id).appendChild(aproductname);
+
+        var divdescription = document.createElement("div");
+        divdescription.setAttribute("class", "small m-t-xs"); 
+        divdescription.textContent = doc.data().descripcion;
+        document.getElementById("divproductdesc" + doc.id).appendChild(divdescription);
+
+        var divbutton = document.createElement("div");
+        divbutton.setAttribute("class", "m-t text-righ"); 
+        divbutton.setAttribute("id", "divbutton" + doc.id); 
+        document.getElementById("divproductdesc" + doc.id).appendChild(divbutton);
+
+        if(doc.data().estatus!="Agotado"){
+        var abutton = document.createElement("a");
+        abutton.setAttribute("class", "btn btn-xs btn-outline btn-primary"); 
+        abutton.setAttribute("id", "abutton" + doc.id); 
+        abutton.textContent = "Comprar";
+        document.getElementById("divbutton" + doc.id).appendChild(abutton);
+
+        var ibutton = document.createElement("i");
+        ibutton.setAttribute("class", "fa fa-long-arrow-right");  
+        document.getElementById("abutton" + doc.id).appendChild(ibutton);
+        }else{ 
+            var textagotado = document.createElement("span");
+            textagotado.setAttribute("class", "label label-danger float-right"); 
+            textagotado.textContent = "Agotado";
+            document.getElementById("divbutton" + doc.id).appendChild(textagotado);
+        }
+        tem++;
+    }); 
+}
+function limpiarareasplatillos(){
+    document.getElementById('div1').innerHTML = "";
+    document.getElementById('div2').innerHTML = "";
+    document.getElementById('div3').innerHTML = "";
+    document.getElementById('div4').innerHTML = "";
+    document.getElementById('div5').innerHTML = "";
+    document.getElementById('div6').innerHTML = "";
+    document.getElementById('div7').innerHTML = "";
+    document.getElementById('div8').innerHTML = "";
+}
+function buscarplatillostipo(sel){
+    var listaplatillos=[];
+    var categoria=sel.value;
+    db.collection('Restauranes').get().then( querySnapshot => {
+        limpiarareasplatillos();
+        querySnapshot.forEach(doccollection => { 
+            db.collection("Restauranes").doc(doccollection.id).collection("Platillos").get()
+            .then(querySnapshot => { 
+                if(doc.data().caategoria===categoria){
+                    listaplatillos.push(doc);
+                }
+            }); 
+        });
+    }); 
+    listaplatillos.forEach(platillo => { 
+        console.log(platillo.id, " => ", platillo.data()); 
+    });   
+}
   function cerrarSesion(){
     var uid = localStorage.getItem("uid");
     auth.signOut().then(()=>{  
