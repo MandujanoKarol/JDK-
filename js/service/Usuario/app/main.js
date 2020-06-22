@@ -54,16 +54,41 @@ auth.onAuthStateChanged(function(user) {
         window.location.href = "registroUsuario.html"; 
     }
 });
-function todosplatillos(doccollection,querySubCollection){
-    var tem=1;
+
+function limpiarareasplatillos(){
+    document.getElementById('div1').innerHTML = "";
+    document.getElementById('div2').innerHTML = "";
+    document.getElementById('div3').innerHTML = "";
+    document.getElementById('div4').innerHTML = "";
+    document.getElementById('div5').innerHTML = "";
+    document.getElementById('div6').innerHTML = "";
+    document.getElementById('div7').innerHTML = "";
+    document.getElementById('div8').innerHTML = "";
+}
+function buscarplatillostipo(sel){ 
+    var categoria=sel.value;
+    console.log("categoria a buscar:" +categoria);
+    db.collection('Restauranes').get().then( queryCollection => {
+        limpiarareasplatillos();
+        queryCollection.forEach(doccollection => { 
+            if(doccollection.data().categoria===categoria){
+            db.collection("Restauranes").doc(doccollection.id).collection("Platillos").get()
+            .then(querySubCollection => { 
+                todosplatillos(doccollection,querySubCollection)
+            }); 
+            }
+        });
+    });   
+}
+var tem=1;
+var position=0;
+function todosplatillos(doccollection,querySubCollection){ 
     var divs=["div1","div2","div3","div4","div5","div6","div7","div8"];
-    var cants=[4,8,12,16,20,24,28,32];
-    var position=0;
+    var cants=[4,8,12,16,20,24,28,32]; 
     querySubCollection.forEach(doc => {  
         if(tem==cants[position]){
             position++;
-        }
-        ///console.log(doc.id, " => ", doc.data());  
+        }  
         var x = document.createElement("div");
         x.setAttribute("class", "col-md-3");
         x.setAttribute("id", "div" + doc.id); 
@@ -137,33 +162,8 @@ function todosplatillos(doccollection,querySubCollection){
         }
         tem++;
     }); 
-}
-function limpiarareasplatillos(){
-    document.getElementById('div1').innerHTML = "";
-    document.getElementById('div2').innerHTML = "";
-    document.getElementById('div3').innerHTML = "";
-    document.getElementById('div4').innerHTML = "";
-    document.getElementById('div5').innerHTML = "";
-    document.getElementById('div6').innerHTML = "";
-    document.getElementById('div7').innerHTML = "";
-    document.getElementById('div8').innerHTML = "";
-}
-function buscarplatillostipo(sel){ 
-    var categoria=sel.value;
-    console.log("categoria a buscar:" +categoria);
-    db.collection('Restauranes').get().then( queryCollection => {
-        limpiarareasplatillos();
-        queryCollection.forEach(doccollection => { 
-            if(doccollection.data().categoria===categoria){
-            db.collection("Restauranes").doc(doccollection.id).collection("Platillos").get()
-            .then(querySubCollection => { 
-                querySubCollection.forEach(doc => {   
-                        console.log(doc.id, " => ", doc.data()); 
-                });
-            }); 
-            }
-        });
-    });   
+    tem=1;
+    position=0;
 }
   function cerrarSesion(){
     var uid = localStorage.getItem("uid");
