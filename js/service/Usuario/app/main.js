@@ -82,7 +82,7 @@ function buscarplatillostipo(sel){
         });
     });   
     if(ifbusqueda===0){
-        document.getElementById('mensajelistaplatillos').innerHTML = "Actualmente no hay ningun platillo de la cocina: "+categoria;
+        document.getElementById('mensajelistaplatillos').innerHTML = "Actualmente no hay ningun tipo de comida: "+categoria;
     }
     
 }
