@@ -55,8 +55,7 @@ auth.onAuthStateChanged(function(user) {
     }
 });
 
-function limpiarareasplatillos(){
-    document.getElementById('mensajelistaplatillos').innerHTML = "";
+function limpiarareasplatillos(){ 
     document.getElementById('div1').innerHTML = "";
     document.getElementById('div2').innerHTML = "";
     document.getElementById('div3').innerHTML = "";
@@ -68,6 +67,7 @@ function limpiarareasplatillos(){
 }
 
 function buscarplatillostipo(sel){ 
+    document.getElementById('mensajelistaplatillos').innerHTML = "";
     var ifbusqueda=0;
     var categoria=sel.value;
     console.log("categoria a buscar:" +categoria);
@@ -85,8 +85,7 @@ function buscarplatillostipo(sel){
     });   
     if(ifbusqueda===0){
         document.getElementById('mensajelistaplatillos').innerHTML = "Actualmente no hay ningun tipo de comida: "+categoria;
-    }
-    
+    }    
 }
 var tem=1;
 var position=0;
