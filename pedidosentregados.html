@@ -1,52 +1,45 @@
-<!--
-*
-*  INSPINIA - Responsive Admin Theme
-*  version 2.8
-*
--->
-
 <!DOCTYPE html>
 <html>
-<!--INDEX FOR USER-->
 
 <head>
-    <!--Favicon-->
-    <link rel="icono de acceso directo" href="img/icon-web/PigmentoFav.png" type="image / x-icon">
-    <link rel="icon" href="img/icon-web/PigmentoFav.png" type="image / x-icon">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pigmento | Inicio-Usuario</title>
+    <!--Favicon-->
+    <link rel="icono de acceso directo" href="img/icon-web/PigmentoFav.png" type="image / x-icon">
+    <link rel="icon" href="img/icon-web/PigmentoFav.png" type="image / x-icon">
+    <title>Pigmento | Pedidos en Entregados</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
-
     <!-- Toastr style -->
     <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
-
-    <!-- Gritter -->
-    <link href="js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+    <!-- FooTable -->
+    <link href="css/plugins/footable/footable.core.css" rel="stylesheet">
 
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
+
+
 </head>
 
 <body>
+
     <div id="wrapper">
+
         <nav class="navbar-default navbar-static-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element">
                             <img alt="image" class="rounded-circle" src="img/profile_small.jpg" />
-                            
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="block m-t-xs font-bold" id="username"></span>
                                 <span class="text-muted text-xs block">Opciones <b class="caret"></b></span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a class="dropdown-item" href="profile.html">Perfil</a></li> 
+                                <li><a class="dropdown-item" href="profile.html">Perfil</a></li>
                                 <li class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" onclick="cerrarSesion()">Cerrar Sesión</a></li>
                             </ul>
@@ -56,30 +49,32 @@
                         </div>
                     </li>
                     <li class="active">
-                        <a href="javascript:void(0)"><i class="fa fa-search"></i> <span class="nav-label">Busqueda</span>
+                        <a href="javascript:void(0)"><i class="fa fa-search"></i> <span
+                                class="nav-label">Busqueda</span>
                             <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li class="active"><a href="homeUsuario.html">Principal</a></li> 
+                            <li class="active"><a href="homeUsuario.html">Principal</a></li>
                         </ul>
-                    </li> 
+                    </li>
                     <li>
                         <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Mis pedidos</span><span
                                 class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li><a href="pedidospreparacion.html">En Preparacion</a></li>
                             <li><a href="pedidoscamino.html">En Camino</a></li>
-                            <li><a href="pedidosentregados.html">Entregados</a></li> 
+                            <li><a href="pedidosentregados.html">Entregados</a></li>
                         </ul>
-                    </li>   
+                    </li>
                     <li class="landing_link">
-                        <a  href="javascript:void(0)"><i class="fa fa-comments"></i> <span class="nav-label">Chat</span> <span class="label label-warning float-right">Proximamente</span></a>
+                        <a href="javascript:void(0)"><i class="fa fa-comments"></i> <span class="nav-label">Chat</span>
+                            <span class="label label-warning float-right">Proximamente</span></a>
                     </li>
                 </ul>
 
             </div>
         </nav>
 
-        <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div id="page-wrapper" class="gray-bg">
             <div class="row border-bottom">
                 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                     <div class="navbar-header">
@@ -211,60 +206,70 @@
             </div>
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2 id="welcometext"></h2>  
+                    <h2 id="welcometext"></h2>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="homeUsuario.html">Principal</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a>Mis pedidos</a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            <strong>Pedidos entregados</strong>
+                        </li>
+                    </ol>
                 </div>
                 <div class="col-lg-2">
 
                 </div>
             </div>
-            <div class="row  border-bottom white-bg dashboard-header"> 
-                <div class="col-md-12"> 
-                    <h5>Busca tu platillo favorito.</h5> 
-                    <div class="ibox-content row">
-                        <label class="col-sm-12 col-form-label">Tipo de comida</label>
-                        <div class="col-sm-12">
-                        <select class="form-control m-b" name="tipococina" onchange="buscarplatillostipo(this);"> 
-                        </select> 
+
+            <div class="wrapper wrapper-content animated fadeInRight ecommerce">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox">
+                            <div class="ibox-content">
+
+                                <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
+                                    <thead>
+                                        <tr>
+
+                                            <th data-toggle="true">Producto</th>
+                                            <th data-hide="phone">Restaurante</th>
+                                            <th data-hide="phone">Descripcion</th>
+                                            <th data-hide="phone">Precio</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody id="listapedidospreparacion">
+
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="6">
+                                                <!--<ul class="pagination float-right"></ul>-->
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12"> 
-                    <div class="wrapper wrapper-content animated fadeInRight" id="Platillos"> 
-                        <div class="row error-desc" id="mensajelistaplatillos"> 
-                        </div>
-                        <div class="row" id="div1"> 
-                        </div>
-                        <div class="row" id="div2"> 
-                        </div>
-                        <div class="row" id="div3"> 
-                        </div>
-                        <div class="row" id="div4"> 
-                        </div>
-                        <div class="row" id="div5"> 
-                        </div>
-                        <div class="row" id="div6"> 
-                        </div>
-                        <div class="row" id="div7"> 
-                        </div>
-                        <div class="row" id="div8"> 
-                        </div>
-            
-            
-            
-            
-                    </div>
-                </div> 
-
-            </div> 
 
 
+            </div>
             <div class="footer">
                 <div style="text-align: center;">
                     <strong>Copyright</strong> Pigmento &copy; 2020
                 </div>
             </div>
-        </div> 
+
+        </div>
     </div>
+
+
 
     <!-- Mainly scripts -->
     <script src="js/jquery-3.1.1.min.js"></script>
@@ -273,63 +278,33 @@
     <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-    <!-- Flot -->
-    <script src="js/plugins/flot/jquery.flot.js"></script>
-    <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="js/plugins/flot/jquery.flot.spline.js"></script>
-    <script src="js/plugins/flot/jquery.flot.resize.js"></script>
-    <script src="js/plugins/flot/jquery.flot.pie.js"></script>
-
-    <!-- Peity -->
-    <script src="js/plugins/peity/jquery.peity.min.js"></script>
-    <script src="js/demo/peity-demo.js"></script>
-
     <!-- Custom and plugin javascript -->
     <script src="js/inspinia.js"></script>
     <script src="js/plugins/pace/pace.min.js"></script>
 
-    <!-- jQuery UI -->
-    <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- FooTable -->
+    <script src="js/plugins/footable/footable.all.min.js"></script>
 
-    <!-- GITTER -->
-    <script src="js/plugins/gritter/jquery.gritter.min.js"></script>
-
-    <!-- Sparkline -->
-    <script src="js/plugins/sparkline/jquery.sparkline.min.js"></script>
-
-    <!-- Sparkline demo data  -->
-    <script src="js/demo/sparkline-demo.js"></script>
-
-    <!-- ChartJS-->
-    <script src="js/plugins/chartJs/Chart.min.js"></script>
-
-    <!-- Toastr -->
-    <script src="js/plugins/toastr/toastr.min.js"></script>
-
-
+    <!-- Page-Level Scripts -->
     <script>
         $(document).ready(function () {
-            setTimeout(function () {
-                toastr.options = {
-                    closeButton: true,
-                    progressBar: true,
-                    showMethod: 'slideDown',
-                    timeOut: 4000
-                };
-                toastr.success('¡Disfruta de nuestro servicio!', 'Bienvenido a Pigmento');
 
-            }, 1300); 
+            $('.footable').footable();
+
         });
+
     </script>
+    <!-- Toastr -->
+    <script src="js/plugins/toastr/toastr.min.js"></script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
 
     <script src="js/service/bd.js"></script>
-    <script src="js/service/floatingMessage.js"></script> 
-    <script src="js/service/Usuario/app/main.js"></script>
+    <script src="js/service/floatingMessage.js"></script>
+    <script src="js/service/Usuario/app/pedidosentregados.js"></script>
 </body>
 
 </html>
