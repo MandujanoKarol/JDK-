@@ -573,7 +573,7 @@
           lt1=docuser.data().coordenadas.Latitud;
           lg1=docuser.data().coordenadas.Longitud;
           map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: docuser.data().coordenadas.Latitud, lng: docuser.data().coordenadas.Longitud} ,
+          center: {lat: docuser.data().coordenadas.Latitude, lng: docuser.data().coordenadas.Longitude} ,
           zoom: 17,
           ///disableDefaultUI: true,
           mapTypeControl: false,
@@ -618,22 +618,13 @@
           };
           let markeruser = new google.maps.Marker({
           map: map,
-          position: new google.maps.LatLng(docuser.data().coordenadas.Latitud,docuser.data().coordenadas.Longitud),
-          title: user.email,
+          position: new google.maps.LatLng(docuser.data().coordenadas.Latitude,docuser.data().coordenadas.Longitude),
+          title: docuser.data().correo,
           icon: iconouser
           }); 
           markeruser.addListener('click', function() {
             infowindowuser.open(map, markeruser);
-          }); 
-          db.collection('usuarios').get().then( querySnapshot =>{
-                       
-                      querySnapshot.forEach(function (doc) { 
-                        if(doc.id != user.uid){   
-                          addMarker(doc)
-                        }
-            }); 
-          }); 
-          console.log(markers);
+          });   
         });  
 
   
