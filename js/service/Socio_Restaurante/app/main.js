@@ -488,12 +488,33 @@ var DatosPlatillo = db.collection('Restauranes')
 });
   menurestaurantes.forEach( item => item.style.display = 'none');
 menuconfiguracion.forEach( item => item.style.display = 'block');
-
+fetch("js/api/tipos_cocina.json")
+    .then(response => {  
+        ///get element por nombre
+        ///solo la primera coincidencia
+        var select = document.getElementsByName("tipococina")[0];
+        response.json().then(function(dato) {  
+            ///ciclo arreglo de respuesta  
+            dato.tiposcocina.forEach( tipo => { 
+                ///creo un elemento objectPosition
+                ///agrego value y text en la option
+                var option = document.createElement("option");
+                option.value = tipo;
+                option.text = tipo;
+                ///agrego a el select la option
+                select.add(option);
+            });
+        });
+    })
+    .catch(err => {
+        console.log(err);
+    });
 }
 else{
   console.log('no entro');
 }
 });
+
 };
 
 

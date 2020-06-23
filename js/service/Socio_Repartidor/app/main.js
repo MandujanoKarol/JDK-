@@ -4,6 +4,7 @@ $(document).ready(function() {
     db.collection("compras").where("estado", "==",0).where("uidrepartidor", "==","").onSnapshot(function(querySnapshot) { 
         misplatillospreparacion=[];
         misplatillospreparacion=querySnapshot  
+        document.getElementById('listapedidospreparacion').innerHTML="";
         querySnapshot.forEach(function(doc) {    
             db.collection('Restauranes').doc(doc.data().docidrestaurante).get().then( restaurante => {   
                 db.collection("Restauranes").doc(doc.data().docidrestaurante).collection("Platillos").doc(doc.data().docidplatillo).get()
