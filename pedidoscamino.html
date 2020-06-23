@@ -20,7 +20,9 @@
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
-
+<style>
+    
+</style>
 
 </head>
 
@@ -222,9 +224,43 @@
                 </div>
             </div>
 
-        <div class="wrapper wrapper-content animated fadeInRight ecommerce"> 
-            <div class="row">
-                <div class="col-lg-5">
+        <div class="wrapper wrapper-content animated fadeInRight ecommerce">  
+            <div class="row"> 
+                <div class="col-lg-12">
+                        <div class="ibox ">
+                            <div class="ibox-content">
+                                    <div>
+                                        <span class="float-right text-right">
+                                        <small>Average value of sales in the past month in: <strong>United states</strong></small>
+                                            <br>
+                                            All sales: 162,862
+                                        </span>
+                                        <h1 class="m-b-xs">$ 50,992</h1>
+                                        <h3 class="font-bold no-margins">
+                                            Half-year revenue margin
+                                        </h3>
+                                        <small>Sales marketing.</small>
+                                    </div>
+
+                                <div> 
+                                    <div id="map" height="166" style="display: block; width: 100%; height: 166px;" width="714"></div>  
+                                    
+                                </div>
+
+                                <div class="m-t-md">
+                                    <small class="float-right">
+                                        <i class="fa fa-clock-o"> </i>
+                                        Update on 16.07.2015
+                                    </small>
+                                   <small>
+                                       <strong>Analysis of sales:</strong> The value has been changed over time, and last month reached a level over $50,000.
+                                   </small>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                <div class="col-lg-12">
                     <div class="ibox">
                         <div class="ibox-content">
 
@@ -255,9 +291,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-7">
-                    <div id="map"></div>
-                </div>
+                
             </div>
 
 
@@ -310,6 +344,326 @@
  <script src="js/service/bd.js"></script>
  <script src="js/service/floatingMessage.js"></script> 
  <script src="js/service/Usuario/app/pedidoscamino.js"></script>
+ <script>
+     var uid = localStorage.getItem("uid"); 
+     function iniciaMapa(){ 
+    var styledMapType = new google.maps.StyledMapType(
+      [
+{
+  "featureType": "all",
+  "elementType": "labels.text.fill",
+  "stylers": [
+      {
+          "color": "#7c93a3"
+      },
+      {
+          "lightness": "-10"
+      }
+  ]
+},
+{
+  "featureType": "administrative.country",
+  "elementType": "geometry",
+  "stylers": [
+      {
+          "visibility": "on"
+      }
+  ]
+},
+{
+  "featureType": "administrative.country",
+  "elementType": "geometry.stroke",
+  "stylers": [
+      {
+          "color": "#a0a4a5"
+      }
+  ]
+},
+{
+  "featureType": "administrative.province",
+  "elementType": "geometry.stroke",
+  "stylers": [
+      {
+          "color": "#62838e"
+      }
+  ]
+},
+{
+  "featureType": "landscape",
+  "elementType": "geometry.fill",
+  "stylers": [
+      {
+          "color": "#dde3e3"
+      }
+  ]
+},
+{
+  "featureType": "landscape.man_made",
+  "elementType": "geometry.stroke",
+  "stylers": [
+      {
+          "color": "#3f4a51"
+      },
+      {
+          "weight": "0.30"
+      }
+  ]
+},
+{
+  "featureType": "poi",
+  "elementType": "all",
+  "stylers": [
+      {
+          "visibility": "simplified"
+      }
+  ]
+},
+{
+  "featureType": "poi.attraction",
+  "elementType": "all",
+  "stylers": [
+      {
+          "visibility": "on"
+      }
+  ]
+},
+{
+  "featureType": "poi.business",
+  "elementType": "all",
+  "stylers": [
+      {
+          "visibility": "off"
+      }
+  ]
+},
+{
+  "featureType": "poi.government",
+  "elementType": "all",
+  "stylers": [
+      {
+          "visibility": "off"
+      }
+  ]
+},
+{
+  "featureType": "poi.park",
+  "elementType": "all",
+  "stylers": [
+      {
+          "visibility": "on"
+      }
+  ]
+},
+{
+  "featureType": "poi.place_of_worship",
+  "elementType": "all",
+  "stylers": [
+      {
+          "visibility": "off"
+      }
+  ]
+},
+{
+  "featureType": "poi.school",
+  "elementType": "all",
+  "stylers": [
+      {
+          "visibility": "off"
+      }
+  ]
+},
+{
+  "featureType": "poi.sports_complex",
+  "elementType": "all",
+  "stylers": [
+      {
+          "visibility": "off"
+      }
+  ]
+},
+{
+  "featureType": "road",
+  "elementType": "all",
+  "stylers": [
+      {
+          "saturation": "-100"
+      },
+      {
+          "visibility": "on"
+      }
+  ]
+},
+{
+  "featureType": "road",
+  "elementType": "geometry.stroke",
+  "stylers": [
+      {
+          "visibility": "on"
+      }
+  ]
+},
+{
+  "featureType": "road.highway",
+  "elementType": "geometry.fill",
+  "stylers": [
+      {
+          "color": "#bbcacf"
+      }
+  ]
+},
+{
+  "featureType": "road.highway",
+  "elementType": "geometry.stroke",
+  "stylers": [
+      {
+          "lightness": "0"
+      },
+      {
+          "color": "#bbcacf"
+      },
+      {
+          "weight": "0.50"
+      }
+  ]
+},
+{
+  "featureType": "road.highway",
+  "elementType": "labels",
+  "stylers": [
+      {
+          "visibility": "on"
+      }
+  ]
+},
+{
+  "featureType": "road.highway",
+  "elementType": "labels.text",
+  "stylers": [
+      {
+          "visibility": "on"
+      }
+  ]
+},
+{
+  "featureType": "road.highway.controlled_access",
+  "elementType": "geometry.fill",
+  "stylers": [
+      {
+          "color": "#ffffff"
+      }
+  ]
+},
+{
+  "featureType": "road.highway.controlled_access",
+  "elementType": "geometry.stroke",
+  "stylers": [
+      {
+          "color": "#a9b4b8"
+      }
+  ]
+},
+{
+  "featureType": "road.arterial",
+  "elementType": "labels.icon",
+  "stylers": [
+      {
+          "invert_lightness": true
+      },
+      {
+          "saturation": "-7"
+      },
+      {
+          "lightness": "3"
+      },
+      {
+          "gamma": "1.80"
+      },
+      {
+          "weight": "0.01"
+      }
+  ]
+},
+{
+  "featureType": "transit",
+  "elementType": "all",
+  "stylers": [
+      {
+          "visibility": "off"
+      }
+  ]
+},
+{
+  "featureType": "water",
+  "elementType": "geometry.fill",
+  "stylers": [
+      {
+          "color": "#a3c7df"
+      }
+  ]
+}
+],{name: 'Mapa Pigemento'});
+     
+          db.collection('cuentasusuarios').doc(uid).get().then( docuser =>{ 
+          lt1=docuser.data().coordenadas.Latitud;
+          lg1=docuser.data().coordenadas.Longitud;
+          map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: docuser.data().coordenadas.Latitude, lng: docuser.data().coordenadas.Longitude} ,
+          zoom: 17,
+          ///disableDefaultUI: true,
+          mapTypeControl: false,
+          panControl:false,
+          zoomControl:true,
+          scaleControl:false,
+          streetViewControl:false,
+          overviewMapControl:false,
+          rotateControl:false
+          });
+
+          //Associate the styled map with the MapTypeId and set it to display.
+          map.mapTypes.set('styled_map', styledMapType);
+          map.setMapTypeId('styled_map');
+
+          var informaciónusuario = "";   
+            const htmluser = ` 
+            <div class="card">
+              <div class="card-header text-left">
+              <p class="card-text"><i style="color:green " class="fa fa-circle" aria-hidden="true"></i> Activo</p>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">${ docuser.data().nombre }</h5>
+              <p class="card-text">Correo: ${ docuser.data().correo}</p>
+              <p class="hint-text">Telefono: Teléfono: ${ docuser.data().telefono }</p>
+              <p class="hint-text">Dirección: ${ docuser.data().direccion }</p> 
+            </div>
+            <div class="card-footer text-muted">
+              Inicio de sesion: ${ docuser.data().dateInOut }
+            </div>
+          </div>
+            `; 
+            informaciónusuario = htmluser;
+          
+          
+          var infowindowuser = new google.maps.InfoWindow({
+                                  content: informaciónusuario
+          });
+          var iconouser = {
+          url: "img/lugarAEntregar.gif", // url imagen
+                scaledSize: new google.maps.Size(50, 50)
+          };
+          let markeruser = new google.maps.Marker({
+          map: map,
+          position: new google.maps.LatLng(docuser.data().coordenadas.Latitude,docuser.data().coordenadas.Longitude),
+          title: docuser.data().correo,
+          icon: iconouser
+          }); 
+          markeruser.addListener('click', function() {
+            infowindowuser.open(map, markeruser);
+          });   
+        });  
+
+  
+}
+ </script>
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADjOfdGIg-7JiqjoTstMN9el4g-nLhxxA&libraries=geometry&callback=iniciaMapa" async defer></script>
 </body>
 
