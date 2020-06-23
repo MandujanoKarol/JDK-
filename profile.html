@@ -1,13 +1,5 @@
-<!--
-*
-*  INSPINIA - Responsive Admin Theme
-*  version 2.8
-*
--->
-
 <!DOCTYPE html>
 <html>
-<!--INDEX FOR USER-->
 
 <head>
     <!--Favicon-->
@@ -16,22 +8,15 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pigmento | Inicio-Usuario</title>
+
+    <title>Pigmento | Perfil</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
-
-    <!-- Toastr style -->
-    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
-
-    <!-- Gritter -->
-    <link href="js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
-
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
 </head>
-
 <body>
     <div id="wrapper">
         <nav class="navbar-default navbar-static-side" role="navigation">
@@ -39,14 +24,15 @@
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element">
-                            <img alt="image" class="rounded-circle" src="img/profile_small.jpg" />
-                            
+                            <img alt="image" class="rounded-circle" style="height: 50px; width: 50px;"
+                                src="img/profile_small.jpg" />
+
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="block m-t-xs font-bold" id="username"></span>
                                 <span class="text-muted text-xs block">Opciones <b class="caret"></b></span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a class="dropdown-item" href="profile.html">Perfil</a></li> 
+                                <li><a class="dropdown-item" href="profile.html">Perfil</a></li>
                                 <li class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" onclick="cerrarSesion()">Cerrar Sesión</a></li>
                             </ul>
@@ -56,23 +42,24 @@
                         </div>
                     </li>
                     <li class="active">
-                        <a href="javascript:void(0)"><i class="fa fa-search"></i> <span class="nav-label">Busqueda</span>
+                        <a href="javascript:void(0)"><i class="fa fa-search"></i> <span
+                                class="nav-label">Busqueda</span>
                             <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li class="active"><a href="homeUsuario.html">Principal</a></li> 
+                            <li class="active"><a href="homeUsuario.html">Principal</a></li>
                         </ul>
-                    </li> 
+                    </li>
                     <li>
-                        <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Mis pedidos</span><span
+                        <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Mis compras</span><span
                                 class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li><a href="pedidospreparacion.html">En Preparacion</a></li>
-                            <li><a href="pedidoscamino.html">En Camino</a></li>
-                            <li><a href="pedidosentregados.html">Entregados</a></li> 
+                            <li><a href="comprasactuales.html">Actuales</a></li>
+                            <li><a href="comprasrealizadas">Realizadas</a></li>
                         </ul>
-                    </li>   
+                    </li>
                     <li class="landing_link">
-                        <a  href="javascript:void(0)"><i class="fa fa-comments"></i> <span class="nav-label">Chat</span> <span class="label label-warning float-right">Proximamente</span></a>
+                        <a href="javascript:void(0)"><i class="fa fa-comments"></i> <span class="nav-label">Chat</span>
+                            <span class="label label-warning float-right">Próximamente</span></a>
                     </li>
                 </ul>
 
@@ -93,14 +80,14 @@
                         </form>
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
-                        <li style="padding: 20px">
+                        <li>
                             <span class="m-r-sm text-muted welcome-message">Bienvenido a Pigmento.</span>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
                                 <i class="fa fa-envelope"></i> <span class="label label-warning">16</span>
                             </a>
-                            <ul class="dropdown-menu dropdown-messages dropdown-menu-right">
+                            <ul class="dropdown-menu dropdown-messages">
                                 <li>
                                     <div class="dropdown-messages-box">
                                         <a class="dropdown-item float-left" href="profile.html">
@@ -211,63 +198,101 @@
             </div>
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2 id="welcometext"></h2>  
+                    <h2 id="welcometext"></h2>
+
                 </div>
                 <div class="col-lg-2">
 
                 </div>
             </div>
-            <div class="row  border-bottom white-bg dashboard-header"> 
-                <div class="col-md-12"> 
-                    <h5>Busca tu platillo favorito.</h5> 
-                    <div class="ibox-content row">
-                        <label class="col-sm-12 col-form-label">Tipo de comida</label>
-                        <div class="col-sm-12">
-                        <select class="form-control m-b" name="tipococina" onchange="buscarplatillostipo(this);"> 
-                        </select> 
+            <div class="wrapper wrapper-content">
+                <div class="row animated fadeInRight">
+                    <div class="col-md-4">
+                        <div class="ibox ">
+                            <div class="ibox-title">
+                                <h5>Información del perfil</h5>
+                            </div>
+                            <div>
+                                <div class="ibox-content no-padding border-left-right ">
+                                   <!--<img alt="image" class="img-fluid" style="height: 350px; width: 350px; display: block; margin-left: auto; margin-right: auto;" src="img/profile.png">--> 
+                                    <img alt="image" class="img-fluid" style="height: 200px; width: 380px; display: block; margin-left: auto; margin-right: auto;" src="img/Pigmento.png">
+                                </div>
+
+                                <div class="ibox-content profile-content">
+                                    <h4>Nombre: <strong>Karol</strong></h4>
+                                    <h4>Apellido: <strong>Mandujano</strong></h4>
+                                    <h4>Correo electrónico: <strong>karol_quijas@hotmail.com</strong></h4>
+                                    <h4>Contraseña: <strong>*******</strong></h4>
+                                    <h4>Teléfono: <strong>(477)1290076</strong></h4>
+                                    <h4>Dirección: <strong>Real Providencia</strong></h4>
+                                    <hr>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-12"> 
-                    <div class="wrapper wrapper-content animated fadeInRight" id="Platillos"> 
-                        <div class="row error-desc" id="mensajelistaplatillos"> 
+                    <div class="col-md-8">
+                        <div class="ibox ">
+                            <div class="ibox-title">
+                                <h5>Actualizar datos personales</h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+
+                                <div>
+                                    <div class="feed-activity-list">
+
+                                        <form role="form">
+                                            <div class="form-group"><label>Nombre</label> <input type="text"
+                                                    placeholder="Ingresar nombre" class="form-control"></div>
+                                            <div class="form-group"><label>Apellido</label> <input type="text"
+                                                    placeholder="Ingresar apellido" class="form-control"></div>
+                                            <div class="form-group"><label>Correo electrónico</label> <input
+                                                    type="email" placeholder="Ingresar correo electrónico"
+                                                    class="form-control"></div>
+                                            <div class="form-group"><label>Contraseña</label> <input type="password"
+                                                    placeholder="Ingresar contraseña" class="form-control"></div>
+                                            <div class="form-group"><label>N° Teléfono</label> <input type="text"
+                                                    placeholder="Ingresar n° de teléfono" class="form-control"></div>
+                                            <div class="form-group"><label>Dirección</label> <textarea type="text"
+                                                    placeholder="Ingresar dirección" class="form-control"></textarea>
+                                            </div>
+                                        </form>
+
+                                    </div>
+
+                                    <div class="user-button">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <button type="button" class="btn btn-primary btn-sm btn-block"><i
+                                                        class="fa fa-envelope"></i> Actualizar información</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
                         </div>
-                        <div class="row" id="div1"> 
-                        </div>
-                        <div class="row" id="div2"> 
-                        </div>
-                        <div class="row" id="div3"> 
-                        </div>
-                        <div class="row" id="div4"> 
-                        </div>
-                        <div class="row" id="div5"> 
-                        </div>
-                        <div class="row" id="div6"> 
-                        </div>
-                        <div class="row" id="div7"> 
-                        </div>
-                        <div class="row" id="div8"> 
-                        </div>
-            
-            
-            
-            
+
                     </div>
-                </div> 
-
-            </div> 
-
-
-            <div class="footer">
-                <div class="float-right">
-                    10GB of <strong>250GB</strong> Free.
-                </div>
-                <div>
-                    <strong>Copyright</strong> Example Company &copy; 2014-2018
                 </div>
             </div>
-        </div> 
+            <div class="footer">
+               
+                <div style="text-align: center;">
+                    <strong>Copyright</strong> Pigmento &copy; 2020
+                </div>
+            </div>
+
+        </div>
     </div>
+
+
 
     <!-- Mainly scripts -->
     <script src="js/jquery-3.1.1.min.js"></script>
@@ -283,13 +308,15 @@
     <script src="js/plugins/flot/jquery.flot.resize.js"></script>
     <script src="js/plugins/flot/jquery.flot.pie.js"></script>
 
-    <!-- Peity -->
-    <script src="js/plugins/peity/jquery.peity.min.js"></script>
-    <script src="js/demo/peity-demo.js"></script>
-
     <!-- Custom and plugin javascript -->
     <script src="js/inspinia.js"></script>
     <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- Peity -->
+    <script src="js/plugins/peity/jquery.peity.min.js"></script>
+
+    <!-- Peity -->
+    <script src="js/demo/peity-demo.js"></script>
 
     <!-- jQuery UI -->
     <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
@@ -310,28 +337,13 @@
     <script src="js/plugins/toastr/toastr.min.js"></script>
 
 
-    <script>
-        $(document).ready(function () {
-            setTimeout(function () {
-                toastr.options = {
-                    closeButton: true,
-                    progressBar: true,
-                    showMethod: 'slideDown',
-                    timeOut: 4000
-                };
-                toastr.success('¡Disfruta de nuestro servicio!', 'Bienvenido a Pigmento');
-
-            }, 1300); 
-        });
-    </script>
-
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
 
     <script src="js/service/bd.js"></script>
-    <script src="js/service/floatingMessage.js"></script> 
+    <script src="js/service/floatingMessage.js"></script>
     <script src="js/service/Usuario/app/main.js"></script>
 </body>
 
