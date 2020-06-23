@@ -97,8 +97,5 @@ function cerrarSesion(){
         window.location.href = "login.html"; 
     });
 }
-function ver(uidrepartidor){
-
-}
 
 
