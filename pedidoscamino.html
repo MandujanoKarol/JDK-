@@ -689,14 +689,7 @@
                 position: new google.maps.LatLng(0,0),
                 title: "Repartidor",
                 icon: iconrepartidor
-                }); 
-                var informacionrepartidor = "";    
-                var infowindowrepartidor = new google.maps.InfoWindow({
-                                        content: informacionrepartidor
-                });
-                markerrepartidor.addListener('click', function() {
-                    infowindowrepartidor.open(map, markerrepartidor);
-                });
+                });  
                 db.collection("cuentasusuarios").doc(uidrepartidor).onSnapshot(function(repartidor) {
                     console.log(repartidor.data()); 
                     informacionrepartidor =` 
@@ -715,7 +708,12 @@
                     </div>
                     </div>
                     `; 
-                    infowindowrepartidor.content=informacionrepartidor;
+                    var infowindowrepartidor = new google.maps.InfoWindow({
+                                        content: informacionrepartidor
+                    });
+                    markerrepartidor.addListener('click', function() {
+                    infowindowrepartidor.open(map, markerrepartidor);
+                    });
                     markerrepartidor.setPosition( new google.maps.LatLng(repartidor.data().coordenadas.Latitud,repartidor.data().coordenadas.Longitud));
                     map.panTo( new google.maps.LatLng(repartidor.data().coordenadas.Latitud,repartidor.data().coordenadas.Longitud));
                 });
