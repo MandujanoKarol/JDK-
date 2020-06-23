@@ -49,19 +49,18 @@
                         </div>
                     </li>
                     <li class="active">
-                        <a href="javascript:void(0)"><i class="fa fa-search"></i> <span class="nav-label">Busqueda</span>
+                        <a href="javascript:void(0)"><i class="fa fa-search"></i> <span class="nav-label">Repartidor</span>
                             <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li class="active"><a href="homeUsuario.html">Principal</a></li> 
+                            <li class="active"><a href="homeRepartidor.html">Principal</a></li> 
                         </ul>
                     </li> 
                     <li>
                         <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Mis pedidos</span><span
                                 class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li><a href="pedidospreparacion.html">En Preparacion</a></li>
-                            <li><a href="pedidoscamino.html">En Camino</a></li>
-                            <li><a href="pedidosentregados.html">Entregados</a></li> 
+                            <li><a href="homeRepartidor.html">Nuevos</a></li> 
+                            <li><a href="pedidosentregadosrepartidor.html">Entregados</a></li> 
                         </ul>
                     </li>   
                     <li class="landing_link">
@@ -213,7 +212,7 @@
                             <a>Mis pedidos</a>
                         </li>
                         <li class="breadcrumb-item active">
-                            <strong>Pedidos en preparacion</strong>
+                            <strong>Nuevos</strong>
                         </li>
                     </ol> 
                 </div>
@@ -225,18 +224,39 @@
         <div class="wrapper wrapper-content animated fadeInRight ecommerce"> 
             <div class="row">
                 <div class="col-lg-12">
+                    <div class="ibox ">
+                        <div class="ibox-content"> 
+
+                            <div> 
+                                <div id="map" height="166" style="display: block; width: 100%; height:400px;" width="714"></div>  
+                                
+                            </div>
+
+                            <div class="m-t-md">
+                                <small class="float-right">
+                                    <i class="fa fa-clock-o"> </i>
+                                    Update on 22.06.2020
+                                </small>
+                               <small>
+                                   <strong>Pigmento:</strong> pedidos.
+                               </small>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
                     <div class="ibox">
                         <div class="ibox-content">
 
                             <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
                                 <thead>
                                 <tr>
-
                                     <th data-toggle="true">Producto</th>
                                     <th data-hide="phone">Restaurante</th> 
                                     <th data-hide="phone">Descripcion</th>
                                     <th data-hide="phone">Precio</th>  
-
+                                    <th data-hide="phone">Evento</th>
                                 </tr>
                                 </thead>
                                 <tbody id="listapedidospreparacion">
@@ -302,7 +322,393 @@
 
  <script src="js/service/bd.js"></script>
  <script src="js/service/floatingMessage.js"></script> 
+ <script>
+     var map;
+    var markerrepartidor;
+    var uid = localStorage.getItem("uid");  
+     function iniciaMapa(){ 
+    var styledMapType = new google.maps.StyledMapType(
+        [
+  {
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#ebe3cd"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "on"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#523735"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#f5f1e6"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#dcd2be"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "color": "#938034"
+      },
+      {
+        "weight": 1
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#ae9e90"
+      },
+      {
+        "saturation": -5
+      }
+    ]
+  },
+  {
+    "featureType": "landscape.natural",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dfd2ae"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dfd2ae"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#93817c"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.business",
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#a5b076"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#447530"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#f5f1e6"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#fdfcf8"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#f8c967"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#e9bc62"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway.controlled_access",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e98d58"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway.controlled_access",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#db8555"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#806b63"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dfd2ae"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#8f7d77"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#ebe3cd"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.station",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dfd2ae"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.station",
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.station.airport",
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.station.bus",
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#b9d3c2"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#92998d"
+      }
+    ]
+  }
+],{name: 'Mapa Pigemento'});
+     
+          db.collection('cuentasusuarios').doc(uid).get().then( docuser =>{ 
+          lt1=docuser.data().coordenadas.Latitud;
+          lg1=docuser.data().coordenadas.Longitud;
+          map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: docuser.data().coordenadas.Latitud, lng: docuser.data().coordenadas.Longitud} ,
+          zoom: 17,
+          ///disableDefaultUI: true,
+          mapTypeControl: false,
+          panControl:false,
+          zoomControl:true,
+          scaleControl:false,
+          streetViewControl:false,
+          overviewMapControl:false,
+          rotateControl:false
+          });
+
+          //Associate the styled map with the MapTypeId and set it to display.
+          map.mapTypes.set('styled_map', styledMapType);
+          map.setMapTypeId('styled_map');
+
+          var informaciónusuario = "";   
+            const htmluser = ` 
+            <div class="card">
+              <div class="card-header text-left">
+              <p class="card-text"><i style="color:green " class="fa fa-circle" aria-hidden="true"></i> Activo</p>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">${ docuser.data().nombre + ' ' + docuser.data().apellido}</h5>
+              <p class="card-text">Correo: ${ docuser.data().correo}</p>
+              <p class="hint-text">Telefono: Teléfono: ${ docuser.data().telefono }</p>
+              <p class="hint-text">Dirección: ${ docuser.data().direccion }</p> 
+            </div>
+            <div class="card-footer text-muted">
+              Inicio de sesion: ${ docuser.data().dateInOut }
+            </div>
+          </div>
+            `; 
+            informaciónusuario = htmluser;
+          
+          
+          var infowindowuser = new google.maps.InfoWindow({
+                                  content: informaciónusuario
+          });
+          var iconouser = {
+          url: "img/pin/repartidor.png", // url imagen
+                scaledSize: new google.maps.Size(50, 50)
+          };
+          markerrepartidor = new google.maps.Marker({
+          map: map,
+          position: new google.maps.LatLng(docuser.data().coordenadas.Latitud,docuser.data().coordenadas.Longitud),
+          title: docuser.data().correo,
+          icon: iconouser
+          }); 
+          
+          markerrepartidor.addListener('click', function() {
+            infowindowuser.open(map, markerrepartidor);
+          });   
+        });       
+    }
+    var watchId = null;
+    function llevarpedido(uidusuario,docidrestaurante){ 
+
+            //poner marker de usuario
+
+            //actualiza marker del repartidor
+            var positionOptions = {
+                enableHighAccuracy: true,
+                timeout: 10 * 1000,  //10 segundos
+                maximumAge: 30 * 1000  //30 segundos
+            }; 
+            if(navigator.geolocation){ 
+                    watchId = navigator.geolocation.watchPosition( function(position){
+                        var lat = position.coords.latitude;
+                        var lng = position.coords.longitude;
+
+                        console.log(position);
+
+                        var coordenadas = lat + ',' + lng;
+
+                        var exactitud = position.coords.accuracy ? position.coords.accuracy : 'no disponible';
+                        var altitud = position.coords.altitude ? position.coords.altitude : 'no disponible';
+                        var velocidad = position.coords.speed ? position.coords.speed : 'no disponible';
+                        var fechayhora = (new Date(position.timestamp)).toString();
+
+                        markerrepartidor.setPosition( new google.maps.LatLng(lat,lng));
+                        map.panTo( new google.maps.LatLng(lat,lng));
+                    }, error, positionOptions); 
+            }
+    }
+    function entregarpedido(){ 
+    if(watchId !== null){
+        navigator.geolocation.clearWatch(watchId); 
+        //actualizar compra estado 2
+    } 
+    }
+ </script>
  <script src="js/service/Socio_Repartidor/app/main.js"></script>
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADjOfdGIg-7JiqjoTstMN9el4g-nLhxxA&libraries=geometry&callback=iniciaMapa" async defer></script>
 </body>
 
 </html>
