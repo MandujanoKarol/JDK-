@@ -620,10 +620,10 @@
 ],{name: 'Mapa Pigemento'});
      
           db.collection('cuentasusuarios').doc(uid).get().then( docuser =>{ 
-          lt1=docuser.data().coordenadas.Latitude;
-          lg1=docuser.data().coordenadas.Longitude;
+          lt1=docuser.data().coordenadas.Latitud;
+          lg1=docuser.data().coordenadas.Longitud;
           map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: docuser.data().coordenadas.Latitude, lng: docuser.data().coordenadas.Longitude} ,
+          center: {lat: docuser.data().coordenadas.Latitud, lng: docuser.data().coordenadas.Longitud} ,
           zoom: 17,
           ///disableDefaultUI: true,
           mapTypeControl: false,
@@ -668,7 +668,7 @@
           };
           let markeruser = new google.maps.Marker({
           map: map,
-          position: new google.maps.LatLng(docuser.data().coordenadas.Latitude,docuser.data().coordenadas.Longitude),
+          position: new google.maps.LatLng(docuser.data().coordenadas.Latitud,docuser.data().coordenadas.Longitud),
           title: docuser.data().correo,
           icon: iconouser
           }); 
@@ -693,9 +693,9 @@
                     //infowindowrepartidor.open(map, markerrepartidor);
                 });
                 db.collection("cuentasusuarios").doc(uidrepartidor).onSnapshot(function(repartidor) {
-                    console.log(repartidor);
-                    markerrepartidor.setPosition( new google.maps.LatLng(repartidor.data().coordenadas.Latitude,repartidor.data().coordenadas.Longitude));
-                    map.panTo( new google.maps.LatLng(repartidor.data().coordenadas.Latitude,repartidor.data().coordenadas.Longitude));
+                    console.log(repartidor.data());
+                    markerrepartidor.setPosition( new google.maps.LatLng(repartidor.data().coordenadas.Latitud,repartidor.data().coordenadas.Longitud));
+                    map.panTo( new google.maps.LatLng(repartidor.data().coordenadas.Latitud,repartidor.data().coordenadas.Longitud));
                 });
             }
             else{

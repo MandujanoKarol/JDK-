@@ -19,8 +19,8 @@ formLogIn.addEventListener('submit',(e)=>{
             navigator.geolocation.getCurrentPosition(function(position) { 
                 ///coords
                 var coords = {
-                    Latitude: position.coords.latitude, 
-                    Longitude: position.coords.longitude
+                    Latitud: position.coords.latitude, 
+                    Longitud: position.coords.longitude
                 } 
                 ///update user data on database firebase
                 return db.collection('cuentasusuarios').doc(cred.user.uid).update({
