@@ -382,6 +382,27 @@ var DatosPlatillo = db.collection('Restauranes')
                   listadeconfiguracionHorario.innerHTML = html2;
 
         console.log("Document data:", doc.data());
+        fetch("js/api/tipos_cocina.json")
+        .then(response => {  
+            ///get element por nombre
+            ///solo la primera coincidencia
+            var select = document.getElementsByName("tipococina")[0];
+            response.json().then(function(dato) {  
+                ///ciclo arreglo de respuesta  
+                dato.tiposcocina.forEach( tipo => { 
+                    ///creo un elemento objectPosition
+                    ///agrego value y text en la option
+                    var option = document.createElement("option");
+                    option.value = tipo;
+                    option.text = tipo;
+                    ///agrego a el select la option
+                    select.add(option);
+                });
+            });
+        })
+        .catch(err => {
+            console.log(err);
+        });
     } else {
         // doc.data() will be undefined in this case
         let html = '';
@@ -483,27 +504,7 @@ var DatosPlatillo = db.collection('Restauranes')
       
                   listadeconfiguracionHorario.innerHTML = html2;
     }
-    fetch("js/api/tipos_cocina.json")
-    .then(response => {  
-        ///get element por nombre
-        ///solo la primera coincidencia
-        var select = document.getElementsByName("tipococina")[0];
-        response.json().then(function(dato) {  
-            ///ciclo arreglo de respuesta  
-            dato.tiposcocina.forEach( tipo => { 
-                ///creo un elemento objectPosition
-                ///agrego value y text en la option
-                var option = document.createElement("option");
-                option.value = tipo;
-                option.text = tipo;
-                ///agrego a el select la option
-                select.add(option);
-            });
-        });
-    })
-    .catch(err => {
-        console.log(err);
-    });
+    
 }).catch(function(error) {
     console.log("Error getting document:", error);
 });
