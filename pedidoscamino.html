@@ -328,11 +328,12 @@
 
  <script src="js/service/bd.js"></script>
  <script src="js/service/floatingMessage.js"></script> 
- <script src="js/service/Usuario/app/pedidoscamino.js"></script>
  <script>
     var map;
     var markerrepartidor;
     var uid = localStorage.getItem("uid"); 
+
+
      function iniciaMapa(){ 
     var styledMapType = new google.maps.StyledMapType(
         [
@@ -674,9 +675,9 @@
           markeruser.addListener('click', function() {
             infowindowuser.open(map, markeruser);
           });   
-        });  
-
-        function ver(uidrepartidor){ 
+        });       
+    }
+    function ver(uidrepartidor){ 
             if(uidrepartidor!=""){
                 var iconrepartidor = {
                 url: "img/pin/repartidor.png", // url imagen
@@ -692,16 +693,18 @@
                     //infowindowrepartidor.open(map, markerrepartidor);
                 });
                 db.collection("cuentasusuarios").doc(uidrepartidor).onSnapshot(function(repartidor) {
+                    console.log(repartidor);
                     markerrepartidor.setPosition( new google.maps.LatLng(repartidor.data().coordenadas.Latitude,repartidor.data().coordenadas.Longitude));
                     map.panTo( new google.maps.LatLng(repartidor.data().coordenadas.Latitude,repartidor.data().coordenadas.Longitude));
                 });
             }
+            else{
+                floatingMessage("Y el repartidor?","Este pedido aun no tiene repartidor, no se preocupe en cualquier segundo tendra un repartidor para llevar su pedido!","error");
+            }
             
         }
-
-  
-}
  </script>
+  <script src="js/service/Usuario/app/pedidoscamino.js"></script>
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADjOfdGIg-7JiqjoTstMN9el4g-nLhxxA&libraries=geometry&callback=iniciaMapa" async defer></script>
 </body>
 
