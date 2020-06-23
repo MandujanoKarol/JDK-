@@ -483,12 +483,7 @@ var DatosPlatillo = db.collection('Restauranes')
       
                   listadeconfiguracionHorario.innerHTML = html2;
     }
-}).catch(function(error) {
-    console.log("Error getting document:", error);
-});
-  menurestaurantes.forEach( item => item.style.display = 'none');
-menuconfiguracion.forEach( item => item.style.display = 'block');
-fetch("js/api/tipos_cocina.json")
+    fetch("js/api/tipos_cocina.json")
     .then(response => {  
         ///get element por nombre
         ///solo la primera coincidencia
@@ -509,6 +504,12 @@ fetch("js/api/tipos_cocina.json")
     .catch(err => {
         console.log(err);
     });
+}).catch(function(error) {
+    console.log("Error getting document:", error);
+});
+  menurestaurantes.forEach( item => item.style.display = 'none');
+menuconfiguracion.forEach( item => item.style.display = 'block');
+
 }
 else{
   console.log('no entro');
