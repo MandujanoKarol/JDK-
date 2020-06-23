@@ -672,6 +672,7 @@
           title: docuser.data().correo,
           icon: iconouser
           }); 
+          
           markeruser.addListener('click', function() {
             infowindowuser.open(map, markeruser);
           });   
@@ -689,11 +690,32 @@
                 title: "Repartidor",
                 icon: iconrepartidor
                 }); 
+                var informacionrepartidor = "";    
+                var infowindowrepartidor = new google.maps.InfoWindow({
+                                        content: informacionrepartidor
+                });
                 markerrepartidor.addListener('click', function() {
-                    //infowindowrepartidor.open(map, markerrepartidor);
+                    infowindowrepartidor.open(map, markerrepartidor);
                 });
                 db.collection("cuentasusuarios").doc(uidrepartidor).onSnapshot(function(repartidor) {
-                    console.log(repartidor.data());
+                    console.log(repartidor.data()); 
+                    informacionrepartidor =` 
+                    <div class="card">
+                    <div class="card-header text-left">
+                    <p class="card-text">Repartidor</p>
+                    </div>
+                    <div class="card-body">
+                    <h5 class="card-title">${ repartidor.data().nombre }</h5>
+                    <p class="card-text">Correo: ${ repartidor.data().correo}</p>
+                    <p class="hint-text">Telefono: Teléfono: ${ repartidor.data().telefono }</p>
+                    <p class="hint-text">Dirección: ${ repartidor.data().direccion }</p> 
+                    </div>
+                    <div class="card-footer text-muted">
+                    Inicio de sesion: ${ repartidor.data().dateInOut }
+                    </div>
+                    </div>
+                    `; 
+                    infowindowrepartidor.content=informacionrepartidor;
                     markerrepartidor.setPosition( new google.maps.LatLng(repartidor.data().coordenadas.Latitud,repartidor.data().coordenadas.Longitud));
                     map.panTo( new google.maps.LatLng(repartidor.data().coordenadas.Latitud,repartidor.data().coordenadas.Longitud));
                 });
