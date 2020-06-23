@@ -9,6 +9,8 @@ auth.onAuthStateChanged(user =>{
                 let html = '';
                 let html2 = '';
                 const perfil = doc.data();
+                document.getElementById("username").innerHTML=perfil.nombre +" "+perfil.apellido;
+                document.getElementById("welcometext").innerHTML="Bienvenid@  "+perfil.nombre.toUpperCase();
                 const columna = `       
                 <div class="ibox-title">
                 <h5>Información del perfil</h5>
