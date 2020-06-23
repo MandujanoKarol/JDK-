@@ -14,8 +14,8 @@ $(document).ready(function() {
 
                 db.collection("Restauranes").doc(doc.data().docidrestaurante).collection("Platillos").doc(doc.data().docidplatillo).get()
                 .then(platillo => { 
-                    console.log(restaurante.data());
-                    console.log(platillo.data());
+                    //console.log(restaurante.data());
+                    //console.log(platillo.data());
 
 
                     var tr = document.createElement("tr"); 
@@ -96,9 +96,6 @@ function cerrarSesion(){
     }).then(()=>{
         window.location.href = "login.html"; 
     });
-}
-function ver(uidrepartidor){
-
 }
 
 
