@@ -680,7 +680,9 @@
     }
     function ver(uidrepartidor){ 
             if(uidrepartidor!=""){
-                markerrepartidor=null;
+                if(markerrepartidor!= undefined){ 
+                    markerrepartidor.setMap(null);
+                }
                 var iconrepartidor = {
                 url: "img/pin/repartidor.png", // url imagen
                         scaledSize: new google.maps.Size(50, 50)
