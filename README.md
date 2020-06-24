@@ -22,9 +22,9 @@ Sitio Web:
 
 Entra! [website](https://mandujanokarol.github.io/JDK-/).
 
-## Accessibility
+## Informacion General
 
-Nuestra sitio web esta sobre  [`Github Pages](https://pages.github.com/) y nuestra base de datos es en  [`Firebase data base](https://firebase.google.com/docs/database?hl=es) y el proyecto es web [`Firebase web](https://firebase.google.com/docs/storage/web/start), asi como el uso de autenticacion [`Firebase auth](https://firebase.google.com/docs/auth/web/start?hl=es-419) .
+Nuestra sitio web esta sobre  [`Github Pages](https://pages.github.com/) y nuestra base de datos es en  [`Firebase data base](https://firebase.google.com/docs/database?hl=es) y el proyecto es de tipo [`Firebase web](https://firebase.google.com/docs/storage/web/start), asi como el uso de autenticacion sobre [`Firebase auth](https://firebase.google.com/docs/auth/web/start?hl=es-419).
 
 ## Core team 
 <a href="https://github.com/MandujanoKarol" target="_blank"> 
