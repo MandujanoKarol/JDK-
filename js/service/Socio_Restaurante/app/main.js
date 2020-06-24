@@ -318,9 +318,27 @@ var DatosPlatillo = db.collection('Restauranes')
       <div class="input-group-prepend" >
         <label class="input-group-text form-control" for="inputGroupSelect02">Categoria Restaurante:</label>
       </div>
-      <select class="form-control m-b" name="tipococina" id="inputGroupSelect02"> 
-                        </select> 
-   
+    <select class="custom-select" id="inputGroupSelect02" >
+      <option selected>Otra</option>
+      <option value="Africana: etíope">Africana: etíope</option>
+      <option value="Alemana">Alemana</option>
+      <option value="Alitas">Alitas</option>
+      <option value="Americana">Americana</option>
+      <option value="Argentina">Argentina</option>
+      <option value="BBQ">BBQ</option>
+      <option value="Caribeña">Caribeña</option>
+      <option value="Comida de bar">Comida de bar</option>
+      <option value="Jugos y licuados">Jugos y licuados</option>
+      <option value="Gourmet">Gourmet</option>
+      <option value="Pollo">Pollo</option>
+      <option value="Vegetariana/vegana">Vegetariana/vegana</option>
+      <option value="Mariscos">Mariscos</option>
+      <option value="Mexicana">Mexicana</option>
+      <option value="Bocadillos">Bocadillos</option>
+      <option value="Pizza">Pizza</option>
+      <option value="Caracas">Caracas</option>
+      <option value="Otra">Otra</option>
+    </select>
   </div>
   
     <button onclick="RegistrarRestaurante()" type="button" class="btn btn-primary btn-block" value="Registrarse">Registrar Restaurante</button>
@@ -382,6 +400,7 @@ var DatosPlatillo = db.collection('Restauranes')
                   listadeconfiguracionHorario.innerHTML = html2;
 
         console.log("Document data:", doc.data());
+        
     } else {
         // doc.data() will be undefined in this case
         let html = '';
@@ -420,9 +439,27 @@ var DatosPlatillo = db.collection('Restauranes')
       <div class="input-group-prepend" >
         <label class="input-group-text form-control" for="inputGroupSelect02">Categoria Restaurante:</label>
       </div>
-      <select class="form-control m-b" name="tipococina" id="inputGroupSelect02"> 
-                        </select> 
-   
+    <select class="custom-select" id="inputGroupSelect02" >
+      <option selected>Otra</option>
+      <option value="Africana: etíope">Africana: etíope</option>
+      <option value="Alemana">Alemana</option>
+      <option value="Alitas">Alitas</option>
+      <option value="Americana">Americana</option>
+      <option value="Argentina">Argentina</option>
+      <option value="BBQ">BBQ</option>
+      <option value="Caribeña">Caribeña</option>
+      <option value="Comida de bar">Comida de bar</option>
+      <option value="Jugos y licuados">Jugos y licuados</option>
+      <option value="Gourmet">Gourmet</option>
+      <option value="Pollo">Pollo</option>
+      <option value="Vegetariana/vegana">Vegetariana/vegana</option>
+      <option value="Mariscos">Mariscos</option>
+      <option value="Mexicana">Mexicana</option>
+      <option value="Bocadillos">Bocadillos</option>
+      <option value="Pizza">Pizza</option>
+      <option value="Caracas">Caracas</option>
+      <option value="Otra">Otra</option>
+    </select>
   </div>
   
     <button onclick="RegistrarRestaurante()" type="button" class="btn btn-primary btn-block" value="Registrarse">Registrar restaurante</button>
@@ -483,17 +520,18 @@ var DatosPlatillo = db.collection('Restauranes')
       
                   listadeconfiguracionHorario.innerHTML = html2;
     }
+    
 }).catch(function(error) {
     console.log("Error getting document:", error);
-});
+}); 
   menurestaurantes.forEach( item => item.style.display = 'none');
 menuconfiguracion.forEach( item => item.style.display = 'block');
-
 }
 else{
   console.log('no entro');
 }
 });
+
 };
 
 
