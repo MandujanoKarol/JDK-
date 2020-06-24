@@ -643,16 +643,15 @@
             const htmluser = ` 
             <div class="card">
               <div class="card-header text-left">
-              <p class="card-text"><i style="color:green " class="fa fa-circle" aria-hidden="true"></i> Activo</p>
+              <p class="card-text">Usuario</p>
             </div>
             <div class="card-body">
               <h5 class="card-title">${ docuser.data().nombre + ' ' + docuser.data().apellido}</h5>
               <p class="card-text">Correo: ${ docuser.data().correo}</p>
-              <p class="hint-text">Telefono: Teléfono: ${ docuser.data().telefono }</p>
+              <p class="hint-text">Telefono:${ docuser.data().telefono }</p>
               <p class="hint-text">Dirección: ${ docuser.data().direccion }</p> 
             </div>
-            <div class="card-footer text-muted">
-              Inicio de sesion: ${ docuser.data().dateInOut }
+            <div class="card-footer text-muted"> 
             </div>
           </div>
             `; 
@@ -703,11 +702,10 @@
                     <div class="card-body">
                     <h5 class="card-title">${ repartidor.data().nombre }</h5>
                     <p class="card-text">Correo: ${ repartidor.data().correo}</p>
-                    <p class="hint-text">Telefono: Teléfono: ${ repartidor.data().telefono }</p>
+                    <p class="hint-text">Telefono:${ repartidor.data().telefono }</p>
                     <p class="hint-text">Dirección: ${ repartidor.data().direccion }</p> 
                     </div>
-                    <div class="card-footer text-muted">
-                    Inicio de sesion: ${ repartidor.data().dateInOut }
+                    <div class="card-footer text-muted"> 
                     </div>
                     </div>
                     `; 
