@@ -14,8 +14,8 @@ Pigmento es la aplicación que te permitirá conectarte con los mejores establec
 
 Sitio Web:
 
-```shell
-https://mandujanokarol.github.io/JDK-/
+```shell 
+<a href="https://mandujanokarol.github.io/JDK-/" target="_blank"> 
 ```
 
 ## Visita nuestro sitio web
@@ -24,7 +24,7 @@ Entra! [website](https://mandujanokarol.github.io/JDK-/).
 
 ## Accessibility
 
-Animate.css supports the [`prefers-reduced-motion` media query](https://webkit.org/blog/7551/responsive-design-for-motion/) so that users with motion sensitivity can opt out of animations. On supported platforms (currently all the majors browsers and OS), users can select "reduce motion" on their operating system preferences and it will turn off CSS transitions for them without any further work required.
+Nuestra sitio web esta sobre  [`Github Pages](https://pages.github.com/) y nuestra base de datos es en  [`Firebase data base](https://firebase.google.com/docs/database?hl=es) y el proyecto es web [`Firebase web](https://firebase.google.com/docs/storage/web/start), asi como el uso de autenticacion [`Firebase auth](https://firebase.google.com/docs/auth/web/start?hl=es-419) .
 
 ## Core team 
 <a href="https://github.com/MandujanoKarol" target="_blank"> 
