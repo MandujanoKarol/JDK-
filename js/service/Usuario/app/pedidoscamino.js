@@ -1,7 +1,7 @@
  var uid = localStorage.getItem("uid"); 
 $(document).ready(function() {   
     db.collection("compras").where("uidusuario", "==", uid).where("estado", "==",1).onSnapshot(function(querySnapshot) {  
-        
+        document.getElementById('listapedidospreparacion').innerHTML="";
         querySnapshot.forEach(function(doc) {   
 
 

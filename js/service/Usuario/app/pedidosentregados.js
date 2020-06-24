@@ -1,11 +1,7 @@
-var misplatillospreparacion=[];
 $(document).ready(function() {  
     var uid = localStorage.getItem("uid"); 
     db.collection("compras").where("uidusuario", "==", uid).where("estado", "==",2).onSnapshot(function(querySnapshot) { 
-        misplatillospreparacion=[];
-        misplatillospreparacion=querySnapshot 
-
-
+        document.getElementById('listapedidospreparacion').innerHTML="";
         querySnapshot.forEach(function(doc) {   
 
 
@@ -38,6 +34,11 @@ $(document).ready(function() {
                     tdplatilloprecio.textContent = "$"+platillo.data().precio;
                     document.getElementById("tr" + platillo.id).appendChild(tdplatilloprecio); 
 
+                    db.collection('cuentasusuarios').doc(doc.data().uidrepartidor).get().then( repartidor => { 
+                    var tdplatilloprecio = document.createElement("td");  
+                    tdplatilloprecio.textContent = repartidor.data().nombre +" "+repartidor.data().apellido;
+                    document.getElementById("tr" + platillo.id).appendChild(tdplatilloprecio); 
+                    });
 
                     /**var tdaction = document.createElement("td"); 
                     tdaction.setAttribute("class", "text-right");

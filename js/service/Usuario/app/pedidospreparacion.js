@@ -1,11 +1,7 @@
-var misplatillospreparacion=[];
-$(document).ready(function() {  
+ $(document).ready(function() {  
     var uid = localStorage.getItem("uid"); 
     db.collection("compras").where("uidusuario", "==", uid).where("estado", "==",0).onSnapshot(function(querySnapshot) { 
-        misplatillospreparacion=[];
-        misplatillospreparacion=querySnapshot 
-
-
+        document.getElementById('listapedidospreparacion').innerHTML="";
         querySnapshot.forEach(function(doc) {   
 
 
