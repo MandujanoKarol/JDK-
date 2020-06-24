@@ -1,11 +1,7 @@
-var misplatillospreparacion=[];
-var uid = localStorage.getItem("uid"); 
+ var uid = localStorage.getItem("uid"); 
 $(document).ready(function() {   
-    db.collection("compras").where("uidusuario", "==", uid).where("estado", "==",1).onSnapshot(function(querySnapshot) { 
-        misplatillospreparacion=[];
-        misplatillospreparacion=querySnapshot 
-
-
+    db.collection("compras").where("uidusuario", "==", uid).where("estado", "==",1).onSnapshot(function(querySnapshot) {  
+        document.getElementById('listapedidospreparacion').innerHTML="";
         querySnapshot.forEach(function(doc) {   
 
 
@@ -52,7 +48,7 @@ $(document).ready(function() {
                     var button1 = document.createElement("button");  
                     button1.setAttribute("class", "btn-white btn btn-xs"); 
                     button1.textContent =  "ver";
-                    button1.setAttribute("OnClick", "ver(" + JSON.stringify( doc.data().uidrepartidor )+")");
+                    button1.setAttribute("OnClick", "ver(" + JSON.stringify( doc.data().uidrepartidor )+","+JSON.stringify( doc.id )+")");
                     document.getElementById( "divbuttons" + platillo.id).appendChild(button1); 
 
 
