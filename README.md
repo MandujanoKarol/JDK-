@@ -44,15 +44,12 @@ alt="Diego Duarte">
 ------------ | ------------- | -------------
 FrontEnd Creator | BackEnd Creator | BackEnd Creator 
 
-## License
+## Licencia
 
 Pigmento is licensed under the MIT license. <https://opensource.org/licenses/MIT>
 
-## Contributing
+## Contribuir
 
-By participating, you are expected to uphold this code. Please report unacceptable behavior to [jdk.teamgeo@gmail.com](mailto:jdk.teamgeo@gmail.com).
+Al participar, se espera que respete este código. Informe algun comportamiento inaceptable a [jdk.teamgeo@gmail.com](mailto:jdk.teamgeo@gmail.com).
 
-
-
-Pull requests are the way to go here. We only have two rules for submitting a pull request: match the naming convention (camelCase, categorised [fades, bounces, etc]) and let us see a demo of submitted animations in a [pen](https://codepen.io). That **last one is important**.
-
+Las solicitudes de extracción son el camino a seguir aquí. Solo tenemos dos reglas para enviar una solicitud de extracción: hacer coincidir la convención de nomenclatura  y dejarnos ver una demostración de su actualizacion o mejora.  **Ese último es importante**..
