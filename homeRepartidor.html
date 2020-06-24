@@ -327,6 +327,8 @@
  <script>
      var map;
     var markerrepartidor;
+    var markerusuario;
+    var idcompraseleccionada=null;
     var uid = localStorage.getItem("uid");  
      function iniciaMapa(){ 
     var styledMapType = new google.maps.StyledMapType(
@@ -673,8 +675,50 @@
         });       
     }
     var watchId = null;
-    function llevarpedido(uidusuario,docidrestaurante){  
+
+
+    function llevarpedido(uidusuario,docidrestaurante,idcompra){  
+        idcompraseleccionada=null;
+        idcompraseleccionada=idcompra;
+        floatingMessage("Vamos!","Comenzemos con el viaje!","success");
             //poner marker de usuario
+            if(markerusuario!= undefined){ 
+                markerusuario.setMap(null);
+            }
+            db.collection("cuentasusuarios").doc(uidusuario).get().then( usuario =>{
+                    informacionusuario =` 
+                    <div class="card">
+                    <div class="card-header text-left">
+                    <p class="card-text">Repartidor</p>
+                    </div>
+                    <div class="card-body">
+                    <h5 class="card-title">${ usuario.data().nombre + ' ' + usuario.data().apellido}</h5>
+                    <p class="card-text">Correo: ${ usuario.data().correo}</p>
+                    <p class="hint-text">Telefono: ${ usuario.data().telefono }</p>
+                    <p class="hint-text">Dirección: ${ usuario.data().direccion }</p> 
+                    </div>
+                    <div class="card-footer text-muted"> 
+                    </div>
+                    </div>
+                    `;  
+                    var infowindowusuario = new google.maps.InfoWindow({
+                                        content: informacionusuario
+                    });
+                    var iconousuario= {
+                    url: "img/pin/lugarAEntregar.png", // url imagen
+                            scaledSize: new google.maps.Size(50, 50)
+                    };
+                    markerusuario = new google.maps.Marker({
+                    map: map,
+                    position: new google.maps.LatLng(usuario.data().coordenadas.Latitud,usuario.data().coordenadas.Longitud),
+                    title: usuario.data().correo,
+                    icon: iconousuario
+                    }); 
+                    markerusuario.addListener('click', function() {
+                        infowindowusuario.open(map, markerusuario);
+                    });
+                    map.panTo( new google.maps.LatLng(usuario.data().coordenadas.Latitud,usuario.data().coordenadas.Longitud));
+            });
 
             //actualiza marker del repartidor
             var positionOptions = {
@@ -686,10 +730,16 @@
                     watchId = navigator.geolocation.watchPosition( function(position){
                         var lat = position.coords.latitude;
                         var lng = position.coords.longitude;
-                        document.getElementById("printcoords").innerHTML="";
-                        document.getElementById("printcoords").innerHTML=lat + ',' + lng;
-                        console.log(position);
-
+                        var coords = {
+                            Latitud: position.coords.latitude, 
+                            Longitud: position.coords.longitude
+                        } 
+                        db.collection('cuentasusuarios').doc(uid).update({
+                            "coordenadas":coords
+                        }).then(function(result) {  
+                        }).catch(function(error) {
+                            floatingMessage("error",error,"error");
+                        }); 
                         var coordenadas = lat + ',' + lng;
 
                         var exactitud = position.coords.accuracy ? position.coords.accuracy : 'no disponible';
@@ -697,16 +747,30 @@
                         var velocidad = position.coords.speed ? position.coords.speed : 'no disponible';
                         var fechayhora = (new Date(position.timestamp)).toString();
 
+                        document.getElementById("printcoords").innerHTML="";
+                        document.getElementById("printcoords").innerHTML="Informacion actual===>"+
+                        " Coordenadas: ("+lat + ',' + lng+"), "+ "Velocidad:"+velocidad+", "+"Fecha y Hora:"+fechayhora+", Altitud:"+altitud;
                         markerrepartidor.setPosition( new google.maps.LatLng(lat,lng));
                         map.panTo( new google.maps.LatLng(lat,lng));
+
+
                     }, error, positionOptions); 
             }
     }
     function entregarpedido(){ 
     if(watchId !== null){
         navigator.geolocation.clearWatch(watchId);
-        watchId = null; 
+        watchId = null;  
+        document.getElementById("printcoords").innerHTML="";
         //actualizar compra estado 2
+        db.collection('compras').doc(idcompraseleccionada).update({
+            "estado":2
+        }).then(function(result) { 
+            idcompraseleccionada=null;  
+            floatingMessage("Listo!","Compra realizada!","success");
+        }).catch(function(error) {
+        floatingMessage("error",error,"error");
+        });
     } 
     }
     function error(positioError){
