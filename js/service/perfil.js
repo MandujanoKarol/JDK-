@@ -96,8 +96,8 @@ auth.onAuthStateChanged(user =>{
                       direccion: document.getElementById('iddireccion').value,
                       telefono: document.getElementById('idtelefono').value,
                   }
-                  ).then(function() {
-                      alert("Persona Modificado");
+                  ).then(function() { 
+                      floatingMessage("Tu perfil se actualizo","OKI DOKI","success");
                       recargarDatosPerfil();
                       }).catch(function(error) {
                           console.error("Error adding document: ", error);
