@@ -44,7 +44,7 @@ $(document).ready(function() {
 
                     var button1 = document.createElement("button");  
                     button1.setAttribute("class", "btn-white btn btn-xs"); 
-                    button1.textContent =  "realizar o entregar pedido";
+                    button1.textContent =  "Llevar pedido";
                     button1.setAttribute("OnClick", "llevarpedido(" + JSON.stringify( doc.data().uidusuario )+","+JSON.stringify( doc.data().docidrestaurante )+")");
                     document.getElementById( "divbuttons" + platillo.id).appendChild(button1);   
                 });
