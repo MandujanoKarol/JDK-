@@ -12,15 +12,15 @@
   
 Pigmento es la aplicación que te permitirá conectarte con los mejores establecimientos de comida desde la comodidad de tu hogar. Te ofrece una gran variedad de menús con los que cuentan los establecimientos conectados a esta plataforma y así puedas pedir tus platillos favoritos cuando lo desees. 
 
-Install with yarn:
+Sitio Web:
 
 ```shell
-yarn add animate.css
+https://mandujanokarol.github.io/JDK-/
 ```
 
-## Getting started
+## Visita nuestro sitio web
 
-You can find the Animate.css documentation on the [website](https://animate.style/).
+Entra! [website](https://mandujanokarol.github.io/JDK-/).
 
 ## Accessibility
 
