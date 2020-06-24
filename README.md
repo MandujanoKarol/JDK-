@@ -28,15 +28,15 @@ Animate.css supports the [`prefers-reduced-motion` media query](https://webkit.o
 
 ## Core team 
 <a href="https://github.com/MandujanoKarol" target="_blank"> 
-<img src="img/" 
+<img src="img/team/karol.png" 
 width="150" height="150" alt="Karol Quijas"> 
 </a>
 <a href="https://github.com/Juancruzd" target="_blank"> 
-<img src="img/" width="150" height="150"
+<img src="img/team/juan.png" width="150" height="150"
 alt="Juan de Dios">  
 </a>
 <a href="https://github.com/duarteissc" target="_blank"> 
-<img src="img/" width="150" height="150"
+<img src="img/team/diego.png" width="150" height="150"
 alt="Diego Duarte">
 </a>
 
