@@ -639,7 +639,7 @@
             const htmluser = ` 
             <div class="card">
               <div class="card-header text-left">
-              <p class="card-text"><i style="color:green " class="fa fa-circle" aria-hidden="true"></i> Activo</p>
+              <p class="card-text">Repartidor</p>
             </div>
             <div class="card-body">
               <h5 class="card-title">${ docuser.data().nombre + ' ' + docuser.data().apellido}</h5>
@@ -690,7 +690,7 @@
                     informacionusuario =` 
                     <div class="card">
                     <div class="card-header text-left">
-                    <p class="card-text">Repartidor</p>
+                    <p class="card-text">Usuario</p>
                     </div>
                     <div class="card-body">
                     <h5 class="card-title">${ usuario.data().nombre + ' ' + usuario.data().apellido}</h5>
@@ -720,7 +720,13 @@
                     });
                     map.panTo( new google.maps.LatLng(usuario.data().coordenadas.Latitud,usuario.data().coordenadas.Longitud));
             });
-
+            db.collection('compras').doc(idcompraseleccionada).update({
+            "estado":1,
+            "uidrepartidor":uid
+            }).then(function(result) {  
+            }).catch(function(error) {
+            floatingMessage("error",error,"error");
+            });
             //actualiza marker del repartidor
             var positionOptions = {
                 enableHighAccuracy: true,
@@ -780,7 +786,7 @@
     }
     function error(positioError){
                 console.log(positioError.messsage);
-            }
+    }
  </script>
  <script src="js/service/Socio_Repartidor/app/main.js"></script>
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADjOfdGIg-7JiqjoTstMN9el4g-nLhxxA&libraries=geometry&callback=iniciaMapa" async defer></script>
