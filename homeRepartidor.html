@@ -639,13 +639,13 @@
             const htmluser = ` 
             <div class="card">
               <div class="card-header text-left">
-              <p class="card-text">Repartidor</p>
+              <p class="card-text" style="font-weight: bold;">Repartidor</p>
             </div>
-            <div class="card-body">
-              <h5 class="card-title">${ docuser.data().nombre + ' ' + docuser.data().apellido}</h5>
-              <p class="card-text">Correo: ${ docuser.data().correo}</p>
-              <p class="hint-text">Telefono: Teléfono: ${ docuser.data().telefono }</p>
-              <p class="hint-text">Dirección: ${ docuser.data().direccion }</p> 
+            <div class="card-body" style="background-color: #FDF2E9;">
+              <h4 class="card-title" style="text-decoration-line: underline; text-align: center;">${ docuser.data().nombre + ' ' + docuser.data().apellido}</h4>
+              <p class="card-text" style="font-weight: bold;">Correo: ${ docuser.data().correo}</p>
+              <p class="hint-text" style="font-weight: bold;">Telefono: Teléfono: ${ docuser.data().telefono }</p>
+              <p class="hint-text" style="font-weight: bold;">Dirección: ${ docuser.data().direccion }</p> 
             </div>
             <div class="card-footer text-muted"> 
             </div>
@@ -689,13 +689,13 @@
                     informacionusuario =` 
                     <div class="card">
                     <div class="card-header text-left">
-                    <p class="card-text">Usuario</p>
+                    <p class="card-text" style="font-weight: bold;">Usuario</p>
                     </div>
-                    <div class="card-body">
-                    <h5 class="card-title">${ usuario.data().nombre + ' ' + usuario.data().apellido}</h5>
-                    <p class="card-text">Correo: ${ usuario.data().correo}</p>
-                    <p class="hint-text">Telefono: ${ usuario.data().telefono }</p>
-                    <p class="hint-text">Dirección: ${ usuario.data().direccion }</p> 
+                    <div class="card-body" style="background-color: #FDF2E9;">
+                    <h4 class="card-title" style="text-decoration-line: underline; text-align: center;">${ usuario.data().nombre + ' ' + usuario.data().apellido}</h4>
+                    <p class="card-text" style="font-weight: bold;">Correo: ${ usuario.data().correo}</p>
+                    <p class="hint-text" style="font-weight: bold;">Telefono: ${ usuario.data().telefono }</p>
+                    <p class="hint-text" style="font-weight: bold;">Dirección: ${ usuario.data().direccion }</p> 
                     </div>
                     <div class="card-footer text-muted"> 
                     </div>
@@ -777,7 +777,7 @@
             if(markerusuario!= undefined){ 
                 markerusuario.setMap(null);
             }
-            floatingMessage("Listo!","Pedido entregado!","success");
+            floatingMessage("¡Listo!","¡Pedido entregado!","success");
         }).catch(function(error) {
         floatingMessage("error",error,"error");
         });

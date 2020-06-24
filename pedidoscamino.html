@@ -697,13 +697,13 @@
                     informacionrepartidor =` 
                     <div class="card">
                     <div class="card-header text-left">
-                    <p class="card-text">Repartidor</p>
+                    <p class="card-text" style="font-weight: bold;">Repartidor</p>
                     </div>
-                    <div class="card-body">
-                    <h5 class="card-title">${ repartidor.data().nombre }</h5>
-                    <p class="card-text">Correo: ${ repartidor.data().correo}</p>
-                    <p class="hint-text">Telefono:${ repartidor.data().telefono }</p>
-                    <p class="hint-text">Dirección: ${ repartidor.data().direccion }</p> 
+                    <div class="card-body" style="background-color: #FDF2E9;">
+                    <h4 class="card-title" style="text-decoration-line: underline; text-align: center;">${ repartidor.data().nombre }</h4>
+                    <p class="card-text" style="font-weight: bold;">Correo: ${ repartidor.data().correo}</p>
+                    <p class="hint-text" style="font-weight: bold;">Telefono:${ repartidor.data().telefono }</p>
+                    <p class="hint-text" style="font-weight: bold;">Dirección: ${ repartidor.data().direccion }</p> 
                     </div>
                     <div class="card-footer text-muted"> 
                     </div>
@@ -720,7 +720,7 @@
                 });
             }
             else{
-                floatingMessage("Y el repartidor?","Este pedido aun no tiene repartidor, no se preocupe en cualquier segundo tendra un repartidor para llevar su pedido!","error");
+                floatingMessage("¿Y el repartidor?","Este pedido aún no tiene repartidor, ¡no se preocupe en cualquier segundo tendrá un repartidor para llevar su pedido!","error");
             }
             
         }
