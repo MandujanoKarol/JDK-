@@ -244,6 +244,9 @@
                                <small>
                                    <strong>Pigmento:</strong> pedidos.
                                </small>
+                               <small id="printcoords">
+
+                               </small>
                             </div>
 
                         </div>
@@ -683,7 +686,8 @@
                     watchId = navigator.geolocation.watchPosition( function(position){
                         var lat = position.coords.latitude;
                         var lng = position.coords.longitude;
-
+                        document.getElementById("printcoords").innerHTML="";
+                        document.getElementById("printcoords").innerHTML=lat + ',' + lng;
                         console.log(position);
 
                         var coordenadas = lat + ',' + lng;
