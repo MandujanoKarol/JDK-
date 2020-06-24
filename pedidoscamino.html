@@ -677,8 +677,11 @@
           });   
         });       
     }
-    function ver(uidrepartidor){ 
+      var compraseleccionada=null;
+    function ver(uidrepartidor,idcompra){  
             if(uidrepartidor!=""){
+              compraseleccionada=null;
+              compraseleccionada=idcompra;
                 if(markerrepartidor!= undefined){ 
                     markerrepartidor.setMap(null);
                 }
@@ -724,6 +727,19 @@
             }
             
         }
+    db.collection("compras").where("uidusuario", "==", uid).where("estado", "==",2).onSnapshot(function(querySnapshot) {  
+        querySnapshot.forEach(function(doc) {  
+            if(doc.id===compraseleccionada){
+              if(markerrepartidor!= undefined){ 
+                    markerrepartidor.setMap(null);
+                }
+              floatingMessage("Tu pedido fue entregado","Para mas detalles revisa tus pedidos entregados","success");
+            }
+        });
+        
+    });
+ 
+         
  </script>
   <script src="js/service/Usuario/app/pedidoscamino.js"></script>
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADjOfdGIg-7JiqjoTstMN9el4g-nLhxxA&libraries=geometry&callback=iniciaMapa" async defer></script>
