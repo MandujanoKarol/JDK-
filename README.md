@@ -15,7 +15,7 @@ Pigmento es la aplicación que te permitirá conectarte con los mejores establec
 Sitio Web:
 
 ```shell 
-<a href="https://mandujanokarol.github.io/JDK-/" target="_blank"> 
+https://mandujanokarol.github.io/JDK-/
 ```
 
 ## Visita nuestro sitio web
